@@ -12,12 +12,16 @@ export default StyleSheet.create({
   },
   logoHeader: {
     alignItems: 'center',
-    margin: 20,
+    marginBottom: 10,
+    marginTop: 40,
     flex: 1,
     justifyContent: 'flex-end',
   },
   loginBox: {
     flex: 0,
+  },
+  formBox: {
+    marginTop: 15,
   },
   bottomSpacer: {
     flex: 1,
