@@ -8,6 +8,11 @@ const primary = lightBlue;
 export default {
   primary,
   fontColor,
+
+  /* Logo */
+  defaultLogoColor: white,
+
+  /* Inner Box */
   innerBoxBg: white,
   innerBoxShadow: black,
 };
