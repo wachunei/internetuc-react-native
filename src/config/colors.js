@@ -15,4 +15,7 @@ export default {
   /* Inner Box */
   innerBoxBg: white,
   innerBoxShadow: black,
+
+  /* WUCTextInput */
+  inputBorderBottom: lightBlue,
 };
