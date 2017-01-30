@@ -7,11 +7,11 @@ import colors from '../config/colors';
 export default StyleSheet.create({
   baseFont: {
     color: colors.fontColor,
-    fontFamily: 'Lato',
+    fontFamily: 'Lato-Regular',
     fontSize: 14,
   },
   title: {
-    fontFamily: 'Varela Round',
+    fontFamily: 'VarelaRound-Regular',
     fontSize: 25,
   },
 });
