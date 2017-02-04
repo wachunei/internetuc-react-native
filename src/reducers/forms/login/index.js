@@ -1,6 +1,7 @@
 const initialState = {
   username: '',
   password: '',
+  error: '',
 };
 
 export default function login(state = initialState, action) {
