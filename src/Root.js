@@ -1,10 +1,16 @@
 import React from 'react';
-import Main from './components/Main';
-import Login from './components/Login';
+import {
+  StatusBar,
+} from 'react-native';
+import {
+  Router,
+} from 'react-native-router-flux';
 
+import scenes from './scenes';
 
 export default function Root() {
+  StatusBar.setBarStyle('light-content');
   return (
-    <Login />
+    <Router scenes={scenes} />
   );
 }
