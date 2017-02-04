@@ -2,6 +2,7 @@ const initialState = {
   username: '',
   password: '',
   error: '',
+  isLoading: false,
 };
 
 export default function login(state = initialState, action) {
