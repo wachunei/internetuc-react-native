@@ -3259,6 +3259,11 @@
       "from": "require-uncached@>=1.0.2 <2.0.0",
       "resolved": "https://registry.npmjs.org/require-uncached/-/require-uncached-1.0.3.tgz"
     },
+    "reselect": {
+      "version": "2.5.4",
+      "from": "reselect@latest",
+      "resolved": "https://registry.npmjs.org/reselect/-/reselect-2.5.4.tgz"
+    },
     "resolve": {
       "version": "1.2.0",
       "from": "resolve@>=1.2.0 <2.0.0",
