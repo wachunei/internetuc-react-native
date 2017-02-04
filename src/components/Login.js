@@ -14,6 +14,9 @@ export default function Login({
   username,
   password,
   isLoading,
+  updateUsername,
+  updatePassword,
+  error,
   }) {
   return (
     <KeyboardAvoidingView style={style.wrapper} behavior="padding">
@@ -32,6 +35,7 @@ export default function Login({
             autoCapitalize="none"
             autoCorrect={false}
             value={username}
+            onChangeText={updateUsername}
           />
           <WUCTextInput
             selectTextOnFocus
@@ -40,7 +44,7 @@ export default function Login({
             placeholder="contraseña"
             returnKeyType="go"
             value={password}
-
+            onChangeText={updatePassword}
           />
         </View>
       </View>
@@ -49,14 +53,11 @@ export default function Login({
   );
 }
 
-Login.defaultProps = {
-  username: '',
-  password: '',
-  isLoading: false,
-};
-
 Login.propTypes = {
-  username: React.PropTypes.string,
-  password: React.PropTypes.string,
-  isLoading: React.PropTypes.bool,
+  username: React.PropTypes.string.isRequired,
+  password: React.PropTypes.string.isRequired,
+  isLoading: React.PropTypes.bool.isRequired,
+  updateUsername: React.PropTypes.func.isRequired,
+  updatePassword: React.PropTypes.func.isRequired,
+  error: React.PropTypes.string.isRequired,
 };

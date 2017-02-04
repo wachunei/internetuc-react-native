@@ -18,3 +18,8 @@ export const getIsLoading = createSelector(
   getLoginForm,
   form => form.isLoading,
 );
+
+export const getError = createSelector(
+  getLoginForm,
+  form => form.error,
+);
