@@ -10,7 +10,11 @@ import WUCLogo from './WUCLogo';
 import style from '../styles/Login';
 import commonStyle from '../styles/common';
 
-export default function Login() {
+export default function Login({
+  username,
+  password,
+  isLoading,
+  }) {
   return (
     <KeyboardAvoidingView style={style.wrapper} behavior="padding">
       <View style={style.logoHeader}>
@@ -27,6 +31,7 @@ export default function Login() {
             placeholder="usuario"
             autoCapitalize="none"
             autoCorrect={false}
+            value={username}
           />
           <WUCTextInput
             selectTextOnFocus
@@ -34,6 +39,8 @@ export default function Login() {
             enablesReturnKeyAutomatically
             placeholder="contraseña"
             returnKeyType="go"
+            value={password}
+
           />
         </View>
       </View>
@@ -41,3 +48,15 @@ export default function Login() {
     </KeyboardAvoidingView>
   );
 }
+
+Login.defaultProps = {
+  username: '',
+  password: '',
+  isLoading: false,
+};
+
+Login.propTypes = {
+  username: React.PropTypes.string,
+  password: React.PropTypes.string,
+  isLoading: React.PropTypes.bool,
+};
