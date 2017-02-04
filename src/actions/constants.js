@@ -9,5 +9,5 @@ export default {
       clearUsername: 'forms.login.clearUsername',
       clearPassword: 'forms.login.clearPassword',
     },
-  }.
+  },
 };
