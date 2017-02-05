@@ -5,7 +5,7 @@ import {
 
 import fontStyle from '../styles/fontStyle';
 
-export default function MUCText({
+export default function WUCText({
   title,
   children,
   style,
@@ -22,13 +22,13 @@ export default function MUCText({
   );
 }
 
-MUCText.propTypes = {
+WUCText.propTypes = {
   children: React.PropTypes.node.isRequired,
   title: React.PropTypes.bool,
   style: Text.propTypes.style,
 };
 
-MUCText.defaultProps = {
+WUCText.defaultProps = {
   title: false,
   style: null,
 };

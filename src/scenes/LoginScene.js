@@ -3,7 +3,7 @@ import {
   Scene,
 } from 'react-native-router-flux';
 
-import Login from '../components/Login';
+import Login from '../containers/Login';
 
 export default (
   <Scene

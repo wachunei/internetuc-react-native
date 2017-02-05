@@ -13,15 +13,29 @@ export default StyleSheet.create({
   logoHeader: {
     alignItems: 'center',
     marginBottom: 10,
-    marginTop: 40,
+    marginTop: 30,
     flex: 1,
     justifyContent: 'flex-end',
   },
-  loginBox: {
-    flex: 0,
+  loginHeader: {
+    marginBottom: 10,
+  },
+  errorWrapper: {
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.errorWrapperBorder,
+    padding: 5,
+    marginVertical: 5,
+    borderRadius: 15,
+  },
+  errorText: {
+    color: colors.errorTextColor,
+    textAlign: 'center',
+  },
+  submitWrapper: {
+    marginTop: 10,
   },
   formBox: {
-    marginTop: 15,
+    marginTop: 5,
   },
   bottomSpacer: {
     flex: 1,

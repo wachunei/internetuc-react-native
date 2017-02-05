@@ -8,12 +8,14 @@ import fontStyle from './fontStyle';
 export default StyleSheet.create({
   wrapper: {
     marginVertical: 5,
-    borderBottomColor: colors.inputBorderBottom,
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.inputBorderBottom,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: 20,
   },
   input: {
-    padding: 0,
-    height: 30,
+    padding: 10,
+    height: 35,
+    textAlign: 'center',
     fontFamily: StyleSheet.flatten(fontStyle.baseFont).fontFamily,
     fontSize: StyleSheet.flatten(fontStyle.baseFont).fontSize,
     color: StyleSheet.flatten(fontStyle.baseFont).color,
