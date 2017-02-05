@@ -12,6 +12,7 @@ import {
   getPassword,
   getIsLoading,
   getError,
+  getValidData,
 } from '../selectors/forms/login';
 
 import * as loginFormActions from '../actions/forms/login';
@@ -22,6 +23,7 @@ function mapStateToProps(state) {
     password: getPassword(state),
     isLoading: getIsLoading(state),
     error: getError(state),
+    buttonEnabled: getValidData(state),
   };
 }
 

@@ -23,3 +23,9 @@ export const getError = createSelector(
   getLoginForm,
   form => form.error,
 );
+
+export const getValidData = createSelector(
+  getUsername,
+  getPassword,
+  (username, password) => password.length > 0 && username.length > 0,
+);
