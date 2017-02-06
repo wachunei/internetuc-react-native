@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "cheerio-without-node-native": "^0.20.2",
     "eslint": "^3.14.1",
     "react": "15.4.2",
     "react-native": "0.40.0",
