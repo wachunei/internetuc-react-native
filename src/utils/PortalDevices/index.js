@@ -2,10 +2,12 @@
 import cheerio from 'cheerio-without-node-native';
 
 import {
-  URL,
   headers,
   JSONtoForm,
   METHODS,
+} from '../fetchUtils';
+import {
+  URL,
 } from './utils';
 
 const responseText = response => response.text();
