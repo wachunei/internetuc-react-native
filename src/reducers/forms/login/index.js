@@ -1,5 +1,9 @@
 import actions from '../../../actions/constants';
 
+import {
+  cleanUsername,
+} from '../../../utils';
+
 const initialState = {
   username: '',
   password: '',
@@ -21,6 +25,12 @@ export default function login(state = initialState, action) {
         password: action.password,
       };
     }
+    case actions.forms.login.cleanUsername: {
+      return {
+        ...state,
+        username: cleanUsername(state.username),
+      };
+    }
     case actions.forms.login.displayGenericError: {
       return {
         ...state,
@@ -31,6 +41,12 @@ export default function login(state = initialState, action) {
       return {
         ...state,
         error: action.error,
+      };
+    }
+    case actions.forms.login.clearError: {
+      return {
+        ...state,
+        error: '',
       };
     }
     case actions.forms.login.clear: {
@@ -48,6 +64,12 @@ export default function login(state = initialState, action) {
       return {
         ...state,
         password: initialState.password,
+      };
+    }
+    case actions.forms.login.isFormLoading: {
+      return {
+        ...state,
+        isLoading: action.isLoading,
       };
     }
     default: {

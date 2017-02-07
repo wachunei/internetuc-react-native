@@ -6,7 +6,7 @@ import {
 
 import inputStyle from '../styles/WUCTextInput';
 
-export default function WUCText({
+export default function WUCTextInput({
   style,
   ...otherProps
 }) {
@@ -21,10 +21,10 @@ export default function WUCText({
   );
 }
 
-WUCText.propTypes = {
+WUCTextInput.propTypes = {
   style: View.propTypes.style,
 };
 
-WUCText.defaultProps = {
+WUCTextInput.defaultProps = {
   style: null,
 };

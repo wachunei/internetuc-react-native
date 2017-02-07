@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Animated,
   Easing,
-  LayoutAnimation,
   TouchableOpacity,
 } from 'react-native';
 
@@ -25,10 +24,6 @@ export default class WUCLoadingButton extends React.Component {
     this.animateLoading();
   }
 
-  componentWillUpdate() {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-  }
-
   animateLoading() {
     this.state.rotation.setValue(0);
     Animated.timing(this.state.rotation, {
@@ -43,6 +38,7 @@ export default class WUCLoadingButton extends React.Component {
       text,
       isLoading,
       disabled,
+      onPress,
     } = this.props;
 
     const renderLoading = isLoading ? (
@@ -64,7 +60,11 @@ export default class WUCLoadingButton extends React.Component {
     const disabledStyle = disabled ? buttonStyle.disabled : null;
 
     return (
-      <TouchableOpacity style={[buttonStyle.wrapper, disabledStyle]} disabled={disabled}>
+      <TouchableOpacity
+        style={[buttonStyle.wrapper, disabledStyle]}
+        disabled={disabled}
+        onPress={onPress}
+      >
         {renderLoading}
         <WUCText style={buttonStyle.text}>{text.toUpperCase()}</WUCText>
       </TouchableOpacity>
@@ -75,10 +75,12 @@ export default class WUCLoadingButton extends React.Component {
 WUCLoadingButton.defaultProps = {
   isLoading: false,
   disabled: false,
+  onPress: f => f,
 };
 
 WUCLoadingButton.propTypes = {
   text: React.PropTypes.string.isRequired,
+  onPress: React.PropTypes.func,
   isLoading: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
 };

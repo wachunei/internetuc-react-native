@@ -17,8 +17,10 @@ export default function Login({
   isLoading,
   updateUsername,
   updatePassword,
+  cleanUsername,
   error,
   buttonEnabled,
+  submit,
   }) {
   const renderError = error ? (
     <View style={style.errorWrapper}>
@@ -45,9 +47,12 @@ export default function Login({
             editable={!isLoading}
             autoCorrect={false}
             value={username}
+            onBlur={cleanUsername}
             onChangeText={updateUsername}
+            onSubmitEditing={() => this.passwordInput.focus()}
           />
           <WUCTextInput
+            ref={passwordInput => (this.passwordInput = passwordInput)}
             selectTextOnFocus
             secureTextEntry
             enablesReturnKeyAutomatically
@@ -56,6 +61,7 @@ export default function Login({
             editable={!isLoading}
             value={password}
             onChangeText={updatePassword}
+            onSubmitEditing={submit}
           />
 
           <View style={style.submitWrapper}>
@@ -63,6 +69,7 @@ export default function Login({
               text="Iniciar Sesión"
               isLoading={isLoading}
               disabled={!buttonEnabled}
+              onPress={submit}
             />
           </View>
         </View>
@@ -80,4 +87,6 @@ Login.propTypes = {
   updatePassword: React.PropTypes.func.isRequired,
   error: React.PropTypes.string.isRequired,
   buttonEnabled: React.PropTypes.bool.isRequired,
+  cleanUsername: React.PropTypes.func.isRequired,
+  submit: React.PropTypes.func.isRequired,
 };
