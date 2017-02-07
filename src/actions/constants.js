@@ -8,6 +8,7 @@ export default {
       clear: 'forms.login.clear',
       clearUsername: 'forms.login.clearUsername',
       clearPassword: 'forms.login.clearPassword',
+      isFormLoading: 'forms.login.isFormLoading',
     },
   },
 };

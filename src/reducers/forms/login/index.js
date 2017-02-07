@@ -50,6 +50,12 @@ export default function login(state = initialState, action) {
         password: initialState.password,
       };
     }
+    case actions.forms.login.isFormLoading: {
+      return {
+        ...state,
+        isLoading: action.isLoading,
+      };
+    }
     default: {
       return state;
     }

@@ -45,3 +45,10 @@ export function clearPassword() {
     type: actions.forms.login.clearPassword,
   };
 }
+
+export function isFormLoading(isLoading) {
+  return {
+    type: actions.forms.login.isFormLoading,
+    isLoading,
+  };
+}
