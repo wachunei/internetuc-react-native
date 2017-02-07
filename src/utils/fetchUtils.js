@@ -11,3 +11,11 @@ export const JSONtoForm = data =>
   Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&');
+
+export const handleError = (response) => {
+  if (!response.ok) {
+    return Promise.reject();
+  }
+
+  return response;
+};

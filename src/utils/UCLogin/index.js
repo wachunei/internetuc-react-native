@@ -3,6 +3,7 @@ import {
   headers,
   JSONtoForm,
   METHODS,
+  handleError,
 } from '../fetchUtils';
 import {
   URL,
@@ -20,7 +21,7 @@ export default class UCLogin {
           _password: password,
         }),
       },
-    );
+    ).then(handleError);
   }
 
   static logout() {

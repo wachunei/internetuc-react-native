@@ -3,8 +3,10 @@ export default {
     login: {
       updateUsername: 'forms.login.updateUsername',
       updatePassword: 'forms.login.updatePassword',
+      cleanUsername: 'forms.login.cleanUsername',
       displayGenericError: 'forms.login.displayGenericError',
       displayError: 'forms.login.displayError',
+      clearError: 'forms.login.clearError',
       clear: 'forms.login.clear',
       clearUsername: 'forms.login.clearUsername',
       clearPassword: 'forms.login.clearPassword',
