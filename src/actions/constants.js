@@ -9,6 +9,13 @@ export default {
       clearUsername: 'forms.login.clearUsername',
       clearPassword: 'forms.login.clearPassword',
       isFormLoading: 'forms.login.isFormLoading',
+      submit: 'forms.login.submit',
     },
+  },
+  user: {
+    setUsername: 'user.setUsername',
+    setPassword: 'user.setPassword',
+    setFullName: 'user.setFullName',
+    clearData: 'user.clearData',
   },
 };
