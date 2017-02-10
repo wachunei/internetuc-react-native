@@ -49,10 +49,8 @@ export default function Login({
             value={username}
             onBlur={cleanUsername}
             onChangeText={updateUsername}
-            onSubmitEditing={() => this.passwordInput.focus()}
           />
           <WUCTextInput
-            ref={passwordInput => (this.passwordInput = passwordInput)}
             selectTextOnFocus
             secureTextEntry
             enablesReturnKeyAutomatically
