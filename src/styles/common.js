@@ -18,4 +18,11 @@ export default StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 5,
   },
+  viewWrapper: {
+    paddingVertical: 20,
+    flex: 1,
+  },
+  itemInnerBox: {
+    flex: 1,
+  },
 });

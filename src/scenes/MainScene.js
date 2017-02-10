@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ActionConst,
   Scene,
 } from 'react-native-router-flux';
 
@@ -9,5 +10,6 @@ export default (
   <Scene
     key="Main"
     component={Main}
+    type={ActionConst.REPLACE}
   />
 );

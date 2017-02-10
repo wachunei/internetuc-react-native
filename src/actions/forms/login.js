@@ -1,3 +1,6 @@
+import {
+  Actions,
+} from 'react-native-router-flux';
 import actions from '../constants';
 import UCLogin from '../../utils/UCLogin';
 
@@ -97,6 +100,7 @@ export function submit() {
       dispatch(setPassword(password));
       dispatch(clearPassword());
       dispatch(isFormLoading(false));
+      Actions.Main();
     })
     .catch(() => {
       dispatch(displayGenericError());
