@@ -10,6 +10,6 @@ export default (
   <Scene
     key="Main"
     component={Main}
-    type={ActionConst.REPLACE}
+    type={ActionConst.RESET}
   />
 );
