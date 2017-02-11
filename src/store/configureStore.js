@@ -4,6 +4,9 @@ import {
   compose,
 } from 'redux';
 import thunk from 'redux-thunk';
+import {
+  autoRehydrate,
+} from 'redux-persist';
 
 import reducers from '../reducers';
 
@@ -13,6 +16,7 @@ export default createStore(
   reducers,
   undefined,
   composeEnhancers(
+    autoRehydrate(),
     applyMiddleware(thunk),
   ),
 );

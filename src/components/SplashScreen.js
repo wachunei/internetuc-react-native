@@ -1,9 +1,14 @@
 import React from 'react';
 import {
   Animated,
+  AsyncStorage,
   View,
-  Text,
 } from 'react-native';
+import {
+  persistStore,
+} from 'redux-persist';
+import store from '../store/configureStore';
+
 
 import WUCLogo from './WUCLogo';
 
@@ -14,18 +19,29 @@ export default class SplashScreen extends React.Component {
   constructor(props) {
     super(props);
     this.initialize = this.initialize.bind(this);
+    this.handleRehydration = this.handleRehydration.bind(this);
     this.logoOpacity = new Animated.Value(0);
   }
 
   componentDidMount() {
     Animated.spring(
       this.logoOpacity,
-      { toValue: 1, duration: 1000 },
+      { toValue: 1, duration: 500 },
     ).start(this.initialize);
   }
 
   initialize() {
-    // Here we initialize the app
+    persistStore(
+      store,
+      {
+        storage: AsyncStorage,
+      },
+      this.handleRehydration,
+    );
+  }
+
+  handleRehydration() {
+    console.log('RE HY DRA TED');
   }
 
   render() {
