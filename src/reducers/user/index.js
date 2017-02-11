@@ -26,7 +26,7 @@ export default function user(state = initialState, action) {
         fullName: action.fullName,
       };
     }
-    case actions.user.clearData: {
+    case actions.user.logOut: {
       return {
         ...initialState,
       };

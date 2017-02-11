@@ -3245,6 +3245,11 @@
       "from": "redux@latest",
       "resolved": "https://registry.npmjs.org/redux/-/redux-3.6.0.tgz"
     },
+    "redux-persist": {
+      "version": "4.3.0",
+      "from": "redux-persist@latest",
+      "resolved": "https://registry.npmjs.org/redux-persist/-/redux-persist-4.3.0.tgz"
+    },
     "redux-thunk": {
       "version": "2.2.0",
       "from": "redux-thunk@latest",

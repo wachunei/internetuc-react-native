@@ -4,6 +4,7 @@ import {
   Scene,
 } from 'react-native-router-flux';
 
+import SplashScreenScene from './SplashScreenScene';
 import MainScene from './MainScene';
 import LoginScene from './LoginScene';
 
@@ -13,6 +14,7 @@ export default Actions.create(
     key="root"
     hideNavBar
   >
+    {SplashScreenScene}
     {MainScene}
     {LoginScene}
   </Scene>,
