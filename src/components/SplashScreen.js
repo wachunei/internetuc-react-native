@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Animated,
   AsyncStorage,
+  LayoutAnimation,
   View,
 } from 'react-native';
 import {
@@ -41,7 +42,12 @@ export default class SplashScreen extends React.Component {
   }
 
   handleRehydration() {
-    console.log('RE HY DRA TED');
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    if (this.props.isLoggedIn) {
+      this.props.onLoggedIn();
+    } else {
+      this.props.onLoggedOut();
+    }
   }
 
   render() {
@@ -58,3 +64,9 @@ export default class SplashScreen extends React.Component {
     );
   }
 }
+
+SplashScreen.propTypes = {
+  isLoggedIn: React.PropTypes.bool.isRequired,
+  onLoggedIn: React.PropTypes.func.isRequired,
+  onLoggedOut: React.PropTypes.func.isRequired,
+};

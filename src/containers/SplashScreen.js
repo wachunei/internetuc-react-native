@@ -11,15 +11,13 @@ import {
 import SplashScreenComponent from '../components/SplashScreen';
 
 import {
-  getUsername,
-  getPassword,
-} from '../selectors/forms/login';
+  getValidData,
+} from '../selectors/user';
 
 
 function mapStateToProps(state) {
   return {
-    username: getUsername(state),
-    password: getPassword(state),
+    isLoggedIn: getValidData(state),
   };
 }
 

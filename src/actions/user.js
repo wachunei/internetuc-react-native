@@ -21,8 +21,8 @@ export function setFullName(fullName) {
   };
 }
 
-export function clearData() {
+export function logOut() {
   return {
-    type: actions.user.clearData,
+    type: actions.user.logOut,
   };
 }

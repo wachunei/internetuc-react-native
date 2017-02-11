@@ -48,7 +48,7 @@ export default class Login extends React.Component {
           {renderError}
           <View style={style.formBox}>
             <WUCTextInput
-              autoFocus
+              autoFocus={username.length === 0}
               selectTextOnFocus
               placeholder="usuario"
               autoCapitalize="none"
@@ -59,6 +59,7 @@ export default class Login extends React.Component {
               onChangeText={updateUsername}
             />
             <WUCTextInput
+              autoFocus={username.length > 0}
               selectTextOnFocus
               secureTextEntry
               enablesReturnKeyAutomatically
