@@ -18,6 +18,7 @@ export default {
     setUsername: 'user.setUsername',
     setPassword: 'user.setPassword',
     setFullName: 'user.setFullName',
+    setLoggingOut: 'user.setLoggingOut',
     logOut: 'user.logOut',
   },
 };

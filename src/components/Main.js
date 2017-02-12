@@ -9,7 +9,7 @@ import {
 // TODO these should be containers :)
 import Devices from './Devices';
 import Form from './Form';
-import About from './About';
+import About from '../containers/About';
 
 import style from '../styles/Main';
 

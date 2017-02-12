@@ -4,6 +4,7 @@ const initialState = {
   username: '',
   password: '',
   fullName: '',
+  loggingOut: false,
 };
 
 export default function user(state = initialState, action) {
@@ -24,6 +25,12 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         fullName: action.fullName,
+      };
+    }
+    case actions.user.setLoggingOut: {
+      return {
+        ...state,
+        loggingOut: action.loggingOut,
       };
     }
     case actions.user.logOut: {

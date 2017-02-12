@@ -14,4 +14,12 @@ export default StyleSheet.create({
     fontFamily: 'VarelaRound-Regular',
     fontSize: 25,
   },
+  link: {
+    color: colors.fontHyperlink,
+    textDecorationLine: 'underline',
+    textDecorationColor: colors.fontHyperlink,
+  },
+  small: {
+    fontSize: 12,
+  },
 });

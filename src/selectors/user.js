@@ -24,3 +24,8 @@ export const getValidData = createSelector(
   getPassword,
   (username, password) => password.length > 0 && username.length > 0,
 );
+
+export const getLoggingOut = createSelector(
+  getUser,
+  user => user.loggingOut,
+);
