@@ -3,6 +3,7 @@ import {
   Animated,
   Easing,
   TouchableOpacity,
+  View,
 } from 'react-native';
 
 import WUCText from './WUCText';
@@ -39,9 +40,10 @@ export default class WUCLoadingButton extends React.Component {
       isLoading,
       disabled,
       onPress,
+      style,
     } = this.props;
 
-    const renderLoading = isLoading ? (
+    const renderButton = isLoading ? (
       <Animated.View
         style={[
           { justifyContent: 'center', alignItems: 'center' },
@@ -55,18 +57,17 @@ export default class WUCLoadingButton extends React.Component {
       >
         <WUCSpinner size={15} />
       </Animated.View>
-    ) : null;
+    ) : (<WUCText style={buttonStyle.text}>{text.toUpperCase()}</WUCText>);
 
     const disabledStyle = disabled ? buttonStyle.disabled : null;
 
     return (
       <TouchableOpacity
-        style={[buttonStyle.wrapper, disabledStyle]}
+        style={[buttonStyle.wrapper, style, disabledStyle]}
         disabled={disabled}
         onPress={onPress}
       >
-        {renderLoading}
-        <WUCText style={buttonStyle.text}>{text.toUpperCase()}</WUCText>
+        {renderButton}
       </TouchableOpacity>
     );
   }
@@ -76,6 +77,7 @@ WUCLoadingButton.defaultProps = {
   isLoading: false,
   disabled: false,
   onPress: f => f,
+  style: null,
 };
 
 WUCLoadingButton.propTypes = {
@@ -83,4 +85,5 @@ WUCLoadingButton.propTypes = {
   onPress: React.PropTypes.func,
   isLoading: React.PropTypes.bool,
   disabled: React.PropTypes.bool,
+  style: View.propTypes.style,
 };

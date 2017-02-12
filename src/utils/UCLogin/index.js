@@ -25,6 +25,6 @@ export default class UCLogin {
   }
 
   static logout() {
-    return fetch(URL.logout);
+    return fetch(URL.logout).then(handleError);
   }
 }
