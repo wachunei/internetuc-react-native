@@ -1,4 +1,14 @@
 export default {
+  devices: {
+    setIsUpdating: 'devices.setIsUpdating',
+    updateDevices: 'devices.updateDevices',
+    setErrorMessage: 'devices.setErrorMessage',
+    clearErrorMessage: 'devices.clearErrorMessage',
+    setDeviceStatus: 'devices.setDeviceStatus',
+    addDevice: 'devices.addDevice',
+    removeDevice: 'devices.removeDevice',
+    setDeviceName: 'devices.setDeviceName',
+  },
   forms: {
     login: {
       updateUsername: 'forms.login.updateUsername',
