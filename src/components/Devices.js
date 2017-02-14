@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import WUCText from './WUCText';
 
+import DevicesList from './DevicesList';
+
 import commonStyle from '../styles/common';
 
 export default class Devices extends React.Component {
@@ -23,15 +25,9 @@ export default class Devices extends React.Component {
     // TODO
     // This should be a nested ListView component
     const renderDevices = devices.length > 0 ? (
-      <ScrollView>
-        {devices.map(device => (
-          <View key={device.mac}>
-            <WUCText>NAME: {device.name}</WUCText>
-            <WUCText>MAC: {device.mac}</WUCText>
-            <WUCText>Active: {device.active ? 'sí' : 'no'}</WUCText>
-          </View>
-        ))}
-      </ScrollView>
+      <DevicesList
+        devices={devices}
+      />
     ) : null;
 
     // TODO improve empty list message

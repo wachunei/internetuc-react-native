@@ -32,6 +32,11 @@ export function clearErrorMessage() {
   };
 }
 
+const showAndClearMessage = (message, dispatch) => {
+  dispatch(setErrorMessage(message));
+  setTimeout(() => dispatch(clearErrorMessage()), 2000);
+};
+
 export function setDeviceStatus(device, status) {
   return {
     type: actions.devices.setDeviceStatus,
@@ -72,11 +77,12 @@ export function updateDevicesRequest() {
     return PortalDevices.getDevices(username, password)
     .then((devices) => {
       dispatch(updateDevices(devices));
-      setIsUpdating(false);
+      dispatch(setIsUpdating(false));
     }).catch((data) => {
       if (data.portalError) {
-        dispatch(setErrorMessage(data.error));
-        setTimeout(() => dispatch(clearErrorMessage()), 2000);
+        showAndClearMessage(data.error, dispatch);
+      } else {
+        showAndClearMessage(data.message, dispatch);
       }
       dispatch(setIsUpdating(false));
     });

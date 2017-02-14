@@ -4,7 +4,8 @@ const white = '#fff';
 const black = '#000';
 const fontColor = '#555';
 const buttonPrimary = '#1cd67c';
-const gray = '#ccc';
+const lightGray = '#ccc';
+const gray = '#999';
 const darkGray = '#444';
 const red = '#ED1C24';
 
@@ -14,8 +15,10 @@ export default {
   primary,
   fontColor,
   fontHyperlink: blue,
+  separatorColor: lightGray,
 
-  separatorColor: gray,
+  /* Device */
+  macTextColor: gray,
 
   /* Logo */
   defaultLogoColor: white,
@@ -36,7 +39,7 @@ export default {
   WUCLoadingButtonBorder: buttonPrimary,
   WUCLoadingButton: white,
   WUCLoadingButtonShadow: darkGray,
-  WUCLoadingButtonDisabledBg: gray,
+  WUCLoadingButtonDisabledBg: lightGray,
 
   /* Spinner */
   defaultSpinnerColor: white,
