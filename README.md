@@ -20,6 +20,7 @@ This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar
 - [ ] Add a new device
 - [ ] Edit device
 - [ ] Delete device
+- [ ] Internationalization
 
 
 ## 🛠 Under the hood
@@ -32,6 +33,7 @@ Tools we're using:
 * `redux-persist`: State persistance using `AsyncStorage`
 * `react-native-router-flux`: A nice Router (this might be an overkill)
 * `reselect`: Memoized state selectors
+* `react-native-svg`: An SVG library
 
 ### ✊🏽 Contribution
 Once I reach a minimum set of features I would love to review and accept some PRs.
