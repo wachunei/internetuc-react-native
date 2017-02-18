@@ -15,4 +15,7 @@ export default StyleSheet.create({
     fontSize: 20,
     color: colors.devicesListEmptyMessage,
   },
+  updatingList: {
+    opacity: 0.5,
+  },
 });

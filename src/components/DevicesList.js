@@ -58,6 +58,7 @@ export default class DevicesList extends React.Component {
             onRefresh={this.props.onRefresh}
           />
         }
+        style={this.props.style}
       />
     );
   }
@@ -77,4 +78,5 @@ DevicesList.propTypes = {
   })),
   isUpdating: React.PropTypes.bool,
   onRefresh: React.PropTypes.func.isRequired,
+  style: View.propTypes.style,
 };

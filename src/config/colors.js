@@ -30,6 +30,9 @@ export default {
   errorWrapperBorder: red,
   errorTextColor: red,
 
+  /* IconButton */
+  iconButtonColor: gray,
+
   /* Inner Box */
   innerBoxBg: white,
   innerBoxShadow: black,

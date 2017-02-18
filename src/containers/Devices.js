@@ -10,12 +10,14 @@ import * as devicesActions from '../actions/devices';
 
 import {
   getDevicesData,
+  getDevicesIsUpdating,
   getDevicesIsForceUpdating,
 } from '../selectors/devices';
 
 function mapStateToProps(state) {
   return {
     devices: getDevicesData(state),
+    isUpdating: getDevicesIsUpdating(state),
     isForceUpdating: getDevicesIsForceUpdating(state),
   };
 }

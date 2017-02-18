@@ -27,5 +27,15 @@ export default StyleSheet.create({
   },
   itemTitle: {
     marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  itemTitleText: {
+    flex: 1,
+  },
+  itemTitleButtons: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
 });
