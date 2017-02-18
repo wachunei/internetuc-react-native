@@ -34,6 +34,7 @@ export default class Devices extends React.Component {
       <DevicesList
         devices={devices}
         isUpdating={isForceUpdating}
+        editMode={editMode}
         onRefresh={updateForcedDevicesRequest}
         onDeviceStatusChange={changeDeviceToStatus}
         style={isUpdating && style.updatingList}
@@ -49,9 +50,9 @@ export default class Devices extends React.Component {
       </View>
     ) : null;
 
-    const renderAddDeviceButton = editMode ? null : (
+    const renderAddDeviceButton = (
       <WUCLoadingButton
-        outlined={devices.length > 0}
+        outlined={devices.length > 0 && !editMode}
         text="Agregar Dispositivo"
       />
     );

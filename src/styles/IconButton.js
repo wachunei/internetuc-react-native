@@ -8,7 +8,8 @@ export default StyleSheet.create({
   button: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 4,
+    padding: 4,
+    paddingVertical: 6,
   },
   text: {
     color: colors.iconButtonColor,

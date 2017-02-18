@@ -41,6 +41,7 @@ export default class DevicesList extends React.Component {
     return (
       <Device
         device={device}
+        editMode={this.props.editMode}
         onStatusChange={this.props.onDeviceStatusChange}
       />
     );
@@ -49,6 +50,7 @@ export default class DevicesList extends React.Component {
   render() {
     return (
       <ListView
+        key={`DevicesList-${this.props.editMode}`}
         dataSource={this.state.dataSource}
         renderRow={this.renderDevice}
         renderSeparator={renderSeparator}
@@ -68,6 +70,7 @@ export default class DevicesList extends React.Component {
 DevicesList.defaultProps = {
   devices: [],
   isUpdating: false,
+  editMode: false,
 };
 
 DevicesList.propTypes = {
@@ -78,6 +81,7 @@ DevicesList.propTypes = {
     updating: React.PropTypes.bool,
   })),
   isUpdating: React.PropTypes.bool,
+  editMode: React.PropTypes.bool,
   onRefresh: React.PropTypes.func.isRequired,
   style: View.propTypes.style,
   onDeviceStatusChange: React.PropTypes.func.isRequired,

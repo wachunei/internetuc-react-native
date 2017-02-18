@@ -33,6 +33,7 @@ export default {
 
   /* IconButton */
   iconButtonColor: gray,
+  iconButtonDangerColor: red,
 
   /* Inner Box */
   innerBoxBg: white,

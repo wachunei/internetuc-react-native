@@ -25,4 +25,7 @@ export default StyleSheet.create({
       { scale: 0.8 },
     ],
   },
+  editButtons: {
+    flexDirection: 'row',
+  },
 });
