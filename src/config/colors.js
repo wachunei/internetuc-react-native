@@ -20,6 +20,9 @@ export default {
   /* Device */
   macTextColor: gray,
 
+  /* Devices */
+  devicesListEmptyMessage: gray,
+
   /* Logo */
   defaultLogoColor: white,
 

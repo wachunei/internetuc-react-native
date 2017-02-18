@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  Button,
   View,
 } from 'react-native';
 import WUCText from './WUCText';
 
 import DevicesList from './DevicesList';
 
+import style from '../styles/Devices';
 import commonStyle from '../styles/common';
 
 export default class Devices extends React.Component {
@@ -31,19 +31,19 @@ export default class Devices extends React.Component {
       />
     ) : null;
 
-    // TODO improve empty list message
     const renderEmptyDevices = devices.length === 0 ? (
-      <View>
-        <WUCText>No tienes dispositivos agregados :(</WUCText>
+      <View style={style.emptyList}>
+        <WUCText centered style={style.emptyListText}>
+          No tienes dispositivos agregados ☹️
+        </WUCText>
       </View>
     ) : null;
 
     return (
       <View style={commonStyle.viewWrapper}>
         <View style={[commonStyle.innerBox, commonStyle.itemInnerBox]}>
-          <View>
+          <View style={commonStyle.itemTitle}>
             <WUCText title>Dispositivos</WUCText>
-            <Button onPress={updateDevicesRequest} title="Update" />
           </View>
           {renderDevices || renderEmptyDevices}
         </View>

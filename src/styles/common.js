@@ -25,4 +25,7 @@ export default StyleSheet.create({
   itemInnerBox: {
     flex: 1,
   },
+  itemTitle: {
+    marginBottom: 10,
+  },
 });
