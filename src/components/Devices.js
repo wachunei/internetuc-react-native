@@ -24,6 +24,7 @@ export default class Devices extends React.Component {
       isForceUpdating,
       updateDevicesRequest,
       updateForcedDevicesRequest,
+      changeDeviceToStatus,
     } = this.props;
 
     const renderDevices = devices.length > 0 ? (
@@ -31,6 +32,7 @@ export default class Devices extends React.Component {
         devices={devices}
         isUpdating={isForceUpdating}
         onRefresh={updateForcedDevicesRequest}
+        onDeviceStatusChange={changeDeviceToStatus}
         style={isUpdating && style.updatingList}
       />
     ) : null;
@@ -97,6 +99,7 @@ Devices.propTypes = {
   devices: React.PropTypes.arrayOf(React.PropTypes.object),
   updateDevicesRequest: React.PropTypes.func.isRequired,
   updateForcedDevicesRequest: React.PropTypes.func.isRequired,
+  changeDeviceToStatus: React.PropTypes.func.isRequired,
   isUpdating: React.PropTypes.bool.isRequired,
   isForceUpdating: React.PropTypes.bool.isRequired,
 };

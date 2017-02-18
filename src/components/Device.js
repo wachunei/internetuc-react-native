@@ -13,6 +13,7 @@ import style from '../styles/Device';
 
 export default function Device({
     device,
+    onStatusChange,
   }) {
   return (
     <View style={style.device}>
@@ -22,9 +23,15 @@ export default function Device({
       </View>
       <View>
         <Switch
-          value={device.active}
-          style={style.deviceSwitch}
+          value={device.updating ? !device.active : device.active}
+          disabled={device.updating}
+          style={[
+            style.deviceSwitch,
+          ]}
           onTintColor={colors.switchOnTint}
+          onValueChange={(value) => {
+            onStatusChange(device, value);
+          }}
         />
       </View>
     </View>
@@ -38,4 +45,5 @@ Device.propTypes = {
     active: React.PropTypes.bool,
     updating: React.PropTypes.bool,
   }).isRequired,
+  onStatusChange: React.PropTypes.func.isRequired,
 };

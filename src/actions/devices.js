@@ -117,8 +117,23 @@ export function updateForcedDevicesRequest() {
   };
 }
 
-export function toggleDeviceRequest(device) {
+export function changeDeviceToStatus(device, newStatus) {
   return (dispatch, getState) => {
     const state = getState();
-  }
+    const username = getUsername(state);
+    const password = getPassword(state);
+    dispatch(setDeviceUpdating(device, true));
+    const action = newStatus ? PortalDevices.addDevice : PortalDevices.removeDevice;
+    return action(username, password, device)
+    .then(() => {
+      dispatch(setDeviceUpdating(device, false));
+      dispatch(setDeviceStatus(device, newStatus));
+    })
+    .catch((error) => {
+      if (error.portalError) {
+        showAndClearMessage(error.error, dispatch);
+      }
+      dispatch(setDeviceUpdating(device, false));
+    });
+  };
 }

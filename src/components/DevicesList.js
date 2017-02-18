@@ -42,6 +42,7 @@ export default class DevicesList extends React.Component {
     return (
       <Device
         device={device}
+        onStatusChange={this.props.onDeviceStatusChange}
       />
     );
   }
@@ -79,4 +80,5 @@ DevicesList.propTypes = {
   isUpdating: React.PropTypes.bool,
   onRefresh: React.PropTypes.func.isRequired,
   style: View.propTypes.style,
+  onDeviceStatusChange: React.PropTypes.func.isRequired,
 };

@@ -8,5 +8,5 @@ export const URL = {
   LIST: `${MAC_HOST}/GetListaMac_controller`,
   EDIT: `${MAC_HOST}/EditarRegistroMac_controller`,
   REMOVE: `${MAC_HOST}/EliminarRegistroMac_controller`,
-  ADD: `${MAC_HOST}/AgregarRegistroMac_controlle`,
+  ADD: `${MAC_HOST}/AgregarRegistroMac_controller`,
 };
