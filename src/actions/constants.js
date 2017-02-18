@@ -2,6 +2,7 @@ export default {
   devices: {
     setIsUpdating: 'devices.setIsUpdating',
     setIsForceUpdating: 'devices.setIsForceUpdating',
+    setEditMode: 'devices.setEditMode',
     updateDevices: 'devices.updateDevices',
     setErrorMessage: 'devices.setErrorMessage',
     clearErrorMessage: 'devices.clearErrorMessage',

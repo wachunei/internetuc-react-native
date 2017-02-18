@@ -12,6 +12,7 @@ import {
   getDevicesData,
   getDevicesIsUpdating,
   getDevicesIsForceUpdating,
+  getDevicesEditMode,
 } from '../selectors/devices';
 
 function mapStateToProps(state) {
@@ -19,6 +20,7 @@ function mapStateToProps(state) {
     devices: getDevicesData(state),
     isUpdating: getDevicesIsUpdating(state),
     isForceUpdating: getDevicesIsForceUpdating(state),
+    editMode: getDevicesEditMode(state),
   };
 }
 

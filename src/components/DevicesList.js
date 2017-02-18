@@ -31,7 +31,6 @@ export default class DevicesList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.devices !== this.props.devices) {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(nextProps.devices),
       });

@@ -22,6 +22,7 @@ export default {
 
   /* Devices */
   devicesListEmptyMessage: gray,
+  devicesDoneEditingColor: green,
 
   /* Logo */
   defaultLogoColor: white,

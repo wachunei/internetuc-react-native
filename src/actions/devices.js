@@ -19,6 +19,14 @@ export function setIsForceUpdating(isForceUpdating) {
     isForceUpdating,
   };
 }
+
+export function setEditMode(editMode) {
+  return {
+    type: actions.devices.setEditMode,
+    editMode,
+  };
+}
+
 export function updateDevices(devices) {
   return {
     type: actions.devices.updateDevices,

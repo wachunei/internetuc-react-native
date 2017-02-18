@@ -14,6 +14,11 @@ export const getDevicesIsForceUpdating = createSelector(
   devices => devices.isForceUpdating,
 );
 
+export const getDevicesEditMode = createSelector(
+  getDevices,
+  devices => devices.editMode,
+);
+
 export const getDevicesData = createSelector(
   getDevices,
   devices => devices.data,

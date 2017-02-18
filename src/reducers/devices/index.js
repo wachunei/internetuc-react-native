@@ -4,6 +4,7 @@ const byActive = (a, b) => b.active - a.active;
 const initialState = {
   isUpdating: false,
   isForceUpdating: false,
+  editMode: false,
   data: [],
 };
 
@@ -19,6 +20,12 @@ export default function devices(state = initialState, action) {
       return {
         ...state,
         isForceUpdating: action.isForceUpdating,
+      };
+    }
+    case actions.devices.setEditMode: {
+      return {
+        ...state,
+        editMode: action.editMode,
       };
     }
     case actions.devices.setDeviceStatus: {
