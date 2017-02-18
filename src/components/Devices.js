@@ -5,6 +5,7 @@ import {
 import WUCText from './WUCText';
 
 import DevicesList from './DevicesList';
+import WUCLoadingButton from './WUCLoadingButton';
 
 import style from '../styles/Devices';
 import commonStyle from '../styles/common';
@@ -39,6 +40,13 @@ export default class Devices extends React.Component {
       </View>
     ) : null;
 
+    const renderAddDeviceButton = (
+      <WUCLoadingButton
+        outlined={devices.length > 0}
+        text="Agregar Dispositivo"
+      />
+    );
+
     return (
       <View style={commonStyle.viewWrapper}>
         <View style={[commonStyle.innerBox, commonStyle.itemInnerBox]}>
@@ -46,6 +54,7 @@ export default class Devices extends React.Component {
             <WUCText title>Dispositivos</WUCText>
           </View>
           {renderDevices || renderEmptyDevices}
+          {renderAddDeviceButton}
         </View>
       </View>
     );

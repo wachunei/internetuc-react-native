@@ -25,10 +25,20 @@ export default StyleSheet.create({
     shadowRadius: 2,
     shadowOpacity: 0.1,
   },
+  outlined: {
+    borderColor: colors.WUCLoadingButtonBg,
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    shadowRadius: 0,
+    shadowOpacity: 0,
+  },
   text: {
     color: colors.WUCLoadingButton,
     margin: 5,
     fontSize: 12,
+  },
+  outlinedText: {
+    color: colors.WUCLoadingButtonBorder,
   },
   spinner: {
     margin: 5,
