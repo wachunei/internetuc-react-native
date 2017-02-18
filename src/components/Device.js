@@ -6,6 +6,7 @@ import {
 import {
   macFormat,
 } from '../utils';
+import colors from '../config/colors';
 import WUCText from './WUCText';
 
 import style from '../styles/Device';
@@ -20,7 +21,11 @@ export default function Device({
         <WUCText style={style.deviceMac}>{macFormat(device.mac)}</WUCText>
       </View>
       <View>
-        <Switch value={device.active} />
+        <Switch
+          value={device.active}
+          style={style.deviceSwitch}
+          onTintColor={colors.switchOnTint}
+        />
       </View>
     </View>
   );
@@ -31,5 +36,6 @@ Device.propTypes = {
     name: React.PropTypes.string,
     mac: React.PropTypes.string,
     active: React.PropTypes.bool,
+    updating: React.PropTypes.bool,
   }).isRequired,
 };

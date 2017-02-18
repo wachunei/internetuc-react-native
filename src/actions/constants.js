@@ -1,10 +1,12 @@
 export default {
   devices: {
     setIsUpdating: 'devices.setIsUpdating',
+    setIsForceUpdating: 'devices.setIsForceUpdating',
     updateDevices: 'devices.updateDevices',
     setErrorMessage: 'devices.setErrorMessage',
     clearErrorMessage: 'devices.clearErrorMessage',
     setDeviceStatus: 'devices.setDeviceStatus',
+    setDeviceUpdating: 'devices.setDeviceUpdating',
     addDevice: 'devices.addDevice',
     removeDevice: 'devices.removeDevice',
     setDeviceName: 'devices.setDeviceName',

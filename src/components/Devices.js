@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Button,
   View,
-  ScrollView,
 } from 'react-native';
 import WUCText from './WUCText';
 
@@ -19,14 +18,16 @@ export default class Devices extends React.Component {
   render() {
     const {
       devices,
+      isForceUpdating,
       updateDevicesRequest,
+      updateForcedDevicesRequest,
     } = this.props;
 
-    // TODO
-    // This should be a nested ListView component
     const renderDevices = devices.length > 0 ? (
       <DevicesList
         devices={devices}
+        isUpdating={isForceUpdating}
+        onRefresh={updateForcedDevicesRequest}
       />
     ) : null;
 
@@ -58,4 +59,6 @@ Devices.defaultProps = {
 Devices.propTypes = {
   devices: React.PropTypes.arrayOf(React.PropTypes.object),
   updateDevicesRequest: React.PropTypes.func.isRequired,
+  updateForcedDevicesRequest: React.PropTypes.func.isRequired,
+  isForceUpdating: React.PropTypes.bool.isRequired,
 };

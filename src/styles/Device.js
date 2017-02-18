@@ -20,4 +20,9 @@ export default StyleSheet.create({
     fontSize: 12,
     color: colors.macTextColor,
   },
+  deviceSwitch: {
+    transform: [
+      { scale: 0.8 },
+    ],
+  },
 });

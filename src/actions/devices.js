@@ -12,6 +12,13 @@ export function setIsUpdating(isUpdating) {
     isUpdating,
   };
 }
+
+export function setIsForceUpdating(isForceUpdating) {
+  return {
+    type: actions.devices.setIsForceUpdating,
+    isForceUpdating,
+  };
+}
 export function updateDevices(devices) {
   return {
     type: actions.devices.updateDevices,
@@ -45,6 +52,14 @@ export function setDeviceStatus(device, status) {
   };
 }
 
+export function setDeviceUpdating(device, updating) {
+  return {
+    type: actions.devices.setDeviceUpdating,
+    device,
+    updating,
+  };
+}
+
 export function addDevice(device) {
   return {
     type: actions.devices.addDevice,
@@ -67,6 +82,12 @@ export function setDeviceName(device, name) {
   };
 }
 
+export function clearDevicesUpdating() {
+  return (dispatch) => {
+    dispatch(setIsUpdating(false));
+    dispatch(setIsForceUpdating(false));
+  };
+}
 
 export function updateDevicesRequest() {
   return (dispatch, getState) => {
@@ -77,14 +98,27 @@ export function updateDevicesRequest() {
     return PortalDevices.getDevices(username, password)
     .then((devices) => {
       dispatch(updateDevices(devices));
-      dispatch(setIsUpdating(false));
+      dispatch(clearDevicesUpdating());
     }).catch((data) => {
       if (data.portalError) {
         showAndClearMessage(data.error, dispatch);
       } else {
         showAndClearMessage(data.message, dispatch);
       }
-      dispatch(setIsUpdating(false));
+      dispatch(clearDevicesUpdating());
     });
   };
+}
+
+export function updateForcedDevicesRequest() {
+  return (dispatch) => {
+    dispatch(setIsForceUpdating(true));
+    dispatch(updateDevicesRequest());
+  };
+}
+
+export function toggleDeviceRequest(device) {
+  return (dispatch, getState) => {
+    const state = getState();
+  }
 }

@@ -3,7 +3,7 @@ const blue = '#4392F1';
 const white = '#fff';
 const black = '#000';
 const fontColor = '#555';
-const buttonPrimary = '#1cd67c';
+const green = '#1cd67c';
 const lightGray = '#ccc';
 const gray = '#999';
 const darkGray = '#444';
@@ -35,12 +35,15 @@ export default {
   inputBorderBottom: lightBlue,
 
   /* WUCLoadingButton */
-  WUCLoadingButtonBg: buttonPrimary,
-  WUCLoadingButtonBorder: buttonPrimary,
+  WUCLoadingButtonBg: green,
+  WUCLoadingButtonBorder: green,
   WUCLoadingButton: white,
   WUCLoadingButtonShadow: darkGray,
   WUCLoadingButtonDisabledBg: lightGray,
 
   /* Spinner */
   defaultSpinnerColor: white,
+
+  /* Switch */
+  switchOnTint: green,
 };

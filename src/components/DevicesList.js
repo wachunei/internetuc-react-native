@@ -2,6 +2,7 @@ import React from 'react';
 import {
   LayoutAnimation,
   ListView,
+  RefreshControl,
   View,
 } from 'react-native';
 import Device from './Device';
@@ -51,6 +52,12 @@ export default class DevicesList extends React.Component {
         dataSource={this.state.dataSource}
         renderRow={this.renderDevice}
         renderSeparator={renderSeparator}
+        refreshControl={
+          <RefreshControl
+            refreshing={this.props.isUpdating}
+            onRefresh={this.props.onRefresh}
+          />
+        }
       />
     );
   }
@@ -58,6 +65,7 @@ export default class DevicesList extends React.Component {
 
 DevicesList.defaultProps = {
   devices: [],
+  isUpdating: false,
 };
 
 DevicesList.propTypes = {
@@ -65,5 +73,8 @@ DevicesList.propTypes = {
     name: React.PropTypes.string,
     mac: React.PropTypes.string,
     active: React.PropTypes.bool,
+    updating: React.PropTypes.bool,
   })),
+  isUpdating: React.PropTypes.bool,
+  onRefresh: React.PropTypes.func.isRequired,
 };
