@@ -59,6 +59,7 @@ export default class DevicesList extends React.Component {
             onRefresh={this.props.onRefresh}
           />
         }
+        pointerEvents={this.props.pointerEvents}
         style={this.props.style}
       />
     );
@@ -81,4 +82,5 @@ DevicesList.propTypes = {
   onRefresh: React.PropTypes.func.isRequired,
   style: View.propTypes.style,
   onDeviceStatusChange: React.PropTypes.func.isRequired,
+  pointerEvents: React.PropTypes.string,
 };

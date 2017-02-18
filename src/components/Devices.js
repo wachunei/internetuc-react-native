@@ -34,6 +34,7 @@ export default class Devices extends React.Component {
         onRefresh={updateForcedDevicesRequest}
         onDeviceStatusChange={changeDeviceToStatus}
         style={isUpdating && style.updatingList}
+        pointerEvents={isUpdating ? 'box-only' : 'auto'}
       />
     ) : null;
 
