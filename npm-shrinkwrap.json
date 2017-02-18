@@ -3165,6 +3165,11 @@
       "from": "react-native-tabs@>=1.0.9 <2.0.0",
       "resolved": "https://registry.npmjs.org/react-native-tabs/-/react-native-tabs-1.0.9.tgz"
     },
+    "react-native-vector-icons": {
+      "version": "4.0.0",
+      "from": "react-native-vector-icons@latest",
+      "resolved": "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-4.0.0.tgz"
+    },
     "react-proxy": {
       "version": "1.1.8",
       "from": "react-proxy@>=1.1.7 <2.0.0",
