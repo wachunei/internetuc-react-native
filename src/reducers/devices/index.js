@@ -81,6 +81,12 @@ export default function devices(state = initialState, action) {
         ],
       };
     }
+    case actions.devices.removeDevice: {
+      return {
+        ...state,
+        data: state.data.filter(device => device.mac !== action.device.mac),
+      };
+    }
     case actions.user.logOut: {
       return {
         ...initialState,

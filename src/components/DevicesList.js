@@ -43,6 +43,7 @@ export default class DevicesList extends React.Component {
         device={device}
         editMode={this.props.editMode}
         onStatusChange={this.props.onDeviceStatusChange}
+        onDeviceRemovePress={this.props.onDeviceRemovePress}
       />
     );
   }
@@ -54,11 +55,11 @@ export default class DevicesList extends React.Component {
         dataSource={this.state.dataSource}
         renderRow={this.renderDevice}
         renderSeparator={renderSeparator}
-        refreshControl={
+        refreshControl={!this.props.editMode ?
           <RefreshControl
             refreshing={this.props.isUpdating}
             onRefresh={this.props.onRefresh}
-          />
+          /> : null
         }
         pointerEvents={this.props.pointerEvents}
         style={this.props.style}
@@ -86,4 +87,5 @@ DevicesList.propTypes = {
   style: View.propTypes.style,
   onDeviceStatusChange: React.PropTypes.func.isRequired,
   pointerEvents: React.PropTypes.string,
+  onDeviceRemovePress: React.PropTypes.func.isRequired,
 };

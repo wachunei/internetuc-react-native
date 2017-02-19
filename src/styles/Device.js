@@ -28,4 +28,7 @@ export default StyleSheet.create({
   editButtons: {
     flexDirection: 'row',
   },
+  loadingDevice: {
+    opacity: 0.5,
+  },
 });

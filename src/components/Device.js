@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Alert,
   View,
   Switch,
 } from 'react-native';
@@ -16,7 +17,24 @@ export default function Device({
     device,
     editMode,
     onStatusChange,
+    onDeviceRemovePress,
   }) {
+  const destroyAlert = [
+    `Borrar ${device.name}`,
+    '¿Estás seguro que quieres borrar este dispositivo?',
+    [
+      {
+        text: 'No, cancelar',
+        onPress: null,
+        style: 'cancel',
+      },
+      {
+        text: 'Sí, borrar',
+        onPress: () => onDeviceRemovePress(device),
+        style: 'destructive',
+      },
+    ],
+  ];
   const renderAction = editMode ? (
     <View style={style.editButtons}>
       <IconButton
@@ -27,6 +45,7 @@ export default function Device({
         displayText
         text="Borrar"
         color={colors.iconButtonDangerColor}
+        onPress={() => Alert.alert(...destroyAlert)}
       />
     </View>
   ) : (
@@ -42,8 +61,9 @@ export default function Device({
       }}
     />
   );
+  const loadingStyle = editMode && device.updating ? style.loadingDevice : null;
   return (
-    <View style={style.device}>
+    <View style={[style.device, loadingStyle]}>
       <View style={style.deviceInfo}>
         <WUCText title style={style.deviceName}>{device.name}</WUCText>
         <WUCText style={style.deviceMac}>{macFormat(device.mac)}</WUCText>
@@ -64,4 +84,5 @@ Device.propTypes = {
   }).isRequired,
   onStatusChange: React.PropTypes.func.isRequired,
   editMode: React.PropTypes.bool.isRequired,
+  onDeviceRemovePress: React.PropTypes.func.isRequired,
 };

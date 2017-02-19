@@ -145,3 +145,26 @@ export function changeDeviceToStatus(device, newStatus) {
     });
   };
 }
+
+export function removeDeviceRequest(device) {
+  return (dispatch, getState) => {
+    dispatch(setDeviceUpdating(device, true));
+    if (device.active) {
+      const state = getState();
+      const username = getUsername(state);
+      const password = getPassword(state);
+      return PortalDevices.removeDevice(username, password, device)
+        .then(() => {
+          dispatch(removeDevice(device));
+        })
+        .catch((error) => {
+          if (error.portalError) {
+            showAndClearMessage(error.error, dispatch);
+          }
+          dispatch(setDeviceUpdating(device, false));
+        });
+    }
+
+    return dispatch(removeDevice(device));
+  };
+}

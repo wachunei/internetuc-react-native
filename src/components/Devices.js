@@ -19,6 +19,12 @@ export default class Devices extends React.Component {
     this.props.updateDevicesRequest();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.devices && nextProps.devices.length === 0 && nextProps.editMode) {
+      this.props.setEditMode(false);
+    }
+  }
+
   render() {
     const {
       devices,
@@ -29,7 +35,9 @@ export default class Devices extends React.Component {
       updateDevicesRequest,
       updateForcedDevicesRequest,
       changeDeviceToStatus,
+      removeDeviceRequest,
     } = this.props;
+
     const renderPlaceholder = !devices ? (
       <DevicesListPlaceholder />
     ) : null;
@@ -40,13 +48,19 @@ export default class Devices extends React.Component {
         editMode={editMode}
         onRefresh={updateForcedDevicesRequest}
         onDeviceStatusChange={changeDeviceToStatus}
+        onDeviceRemovePress={removeDeviceRequest}
         style={isUpdating && style.updatingList}
         pointerEvents={isUpdating ? 'box-only' : 'auto'}
       />
     ) : null;
 
     const renderEmptyDevices = devices && devices.length === 0 ? (
-      <View style={style.emptyList}>
+      <View
+        style={[
+          style.emptyList,
+          isUpdating && style.updatingList,
+        ]}
+      >
         <WUCText centered style={style.emptyListText}>
           No tienes dispositivos agregados ☹️
         </WUCText>
@@ -77,7 +91,7 @@ export default class Devices extends React.Component {
         iconName="edit"
         text="Editar"
         onPress={() => setEditMode(true)}
-        disabled={isUpdating || isForceUpdating}
+        disabled={isUpdating || isForceUpdating || (devices && devices.length === 0)}
         key="editButton"
       />
     );
@@ -138,4 +152,5 @@ Devices.propTypes = {
   isUpdating: React.PropTypes.bool.isRequired,
   editMode: React.PropTypes.bool.isRequired,
   isForceUpdating: React.PropTypes.bool.isRequired,
+  removeDeviceRequest: React.PropTypes.func.isRequired,
 };
