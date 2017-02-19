@@ -3,20 +3,21 @@ Wifi UC clone made with React Native and Redux ✨
 
 Easily manage your wifi devices allowed in UC wireless network.
 
+### Install
+⚠️ This is a WIP, no release versions yet!
+
 ### 📱 Screenshots
 ⚠️ This is a WIP, no screenshots yet!
 ## ℹ️ About
 This is a clone of a series of [applications](https://negebauer.github.io/projects/wifiuc) made for iOS and Electron.
 This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar/), which is an Angular 1.x application 😨
-### Install
-⚠️ This is a WIP, no release versions yet!
 ## Features
 - [x] Log in
 - [ ] Get user full name
 - [x] Log out
 - [x] Get devices list
-- [ ] Pull to refresh devices list
-- [ ] Activate/deactivate device
+- [x] Pull to refresh devices list
+- [x] Activate/deactivate device
 - [ ] Add a new device
 - [ ] Edit device
 - [ ] Delete device
@@ -34,8 +35,9 @@ Tools we're using:
 * `react-native-router-flux`: A nice Router (this might be an overkill)
 * `reselect`: Memoized state selectors
 * `react-native-svg`: An SVG library
+* `react-native-vector-icons`: Vector icons
 
-### ✊🏽 Contribution
+## ✊🏽 Contribute
 Once I reach a minimum set of features I would love to review and accept some PRs.
 Consider the code is linted with ESLint and the configuration extends from [Airbnb style guide](https://github.com/airbnb/javascript).
 As I said before, coding-style related issues are welcome (even if you think something is missing from this README!).
