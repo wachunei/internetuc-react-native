@@ -6,6 +6,7 @@ import colors from '../config/colors';
 
 import WUCText from './WUCText';
 import DevicesList from './DevicesList';
+import DevicesListPlaceholder from './DevicesListPlaceholder';
 import WUCLoadingButton from './WUCLoadingButton';
 import IconButton from './IconButton';
 
@@ -29,8 +30,10 @@ export default class Devices extends React.Component {
       updateForcedDevicesRequest,
       changeDeviceToStatus,
     } = this.props;
-
-    const renderDevices = devices.length > 0 ? (
+    const renderPlaceholder = !devices ? (
+      <DevicesListPlaceholder />
+    ) : null;
+    const renderDevices = devices && devices.length > 0 ? (
       <DevicesList
         devices={devices}
         isUpdating={isForceUpdating}
@@ -42,7 +45,7 @@ export default class Devices extends React.Component {
       />
     ) : null;
 
-    const renderEmptyDevices = devices.length === 0 ? (
+    const renderEmptyDevices = devices && devices.length === 0 ? (
       <View style={style.emptyList}>
         <WUCText centered style={style.emptyListText}>
           No tienes dispositivos agregados ☹️
@@ -50,12 +53,12 @@ export default class Devices extends React.Component {
       </View>
     ) : null;
 
-    const renderAddDeviceButton = (
+    const renderAddDeviceButton = devices ? (
       <WUCLoadingButton
         outlined={devices.length > 0 && !editMode}
         text="Agregar Dispositivo"
       />
-    );
+    ) : null;
 
     const renderRefreshButton = (
       <IconButton
@@ -114,7 +117,7 @@ export default class Devices extends React.Component {
               {renderToolbar}
             </View>
           </View>
-          {renderDevices || renderEmptyDevices}
+          {renderPlaceholder || renderDevices || renderEmptyDevices}
           {renderAddDeviceButton}
         </View>
       </View>
@@ -123,7 +126,7 @@ export default class Devices extends React.Component {
 }
 
 Devices.defaultProps = {
-  devices: [],
+  devices: undefined,
 };
 
 Devices.propTypes = {

@@ -5,7 +5,7 @@ const initialState = {
   isUpdating: false,
   isForceUpdating: false,
   editMode: false,
-  data: [],
+  data: undefined,
 };
 
 export default function devices(state = initialState, action) {
@@ -54,7 +54,7 @@ export default function devices(state = initialState, action) {
     case actions.devices.updateDevices: {
       const matchedRemoteDevices = [];
       const remoteDevices = action.devices;
-      const sortedLocalDevices = state.data.map(device => ({
+      const sortedLocalDevices = state.data ? state.data.map(device => ({
         ...device,
         active: (() => {
           const index = (remoteDevices.find(remoteDevice => remoteDevice.mac === device.mac));
@@ -66,7 +66,7 @@ export default function devices(state = initialState, action) {
           return false;
         })(),
         updating: false,
-      })).sort(byActive);
+      })).sort(byActive) : [];
 
       const newActiveRemoteDevices = remoteDevices.filter(remoteDevice => (
         !matchedRemoteDevices.find(matchedDeviceMac => matchedDeviceMac === remoteDevice.mac)
