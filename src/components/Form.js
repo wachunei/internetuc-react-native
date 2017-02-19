@@ -11,7 +11,9 @@ export default function Devices() {
   return (
     <View style={commonStyle.viewWrapper}>
       <View style={[commonStyle.innerBox, commonStyle.itemInnerBox]}>
-      <WUCText title>Agregar Dispositivo</WUCText>
+        <View style={commonStyle.itemTitle}>
+          <WUCText title>Agregar Dispositivo</WUCText>
+        </View>
       </View>
     </View>
   );

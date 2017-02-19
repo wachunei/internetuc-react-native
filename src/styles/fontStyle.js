@@ -12,7 +12,7 @@ export default StyleSheet.create({
   },
   title: {
     fontFamily: 'VarelaRound-Regular',
-    fontSize: 25,
+    fontSize: 22,
   },
   link: {
     color: colors.fontHyperlink,

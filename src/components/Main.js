@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 // TODO these should be containers :)
-import Devices from './Devices';
+import Devices from '../containers/Devices';
 import Form from './Form';
 import About from '../containers/About';
 

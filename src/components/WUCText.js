@@ -13,6 +13,7 @@ export default function WUCText({
   small,
   href,
   style,
+  onPress,
 }) {
   const titleStyle = title ? fontStyle.title : null;
   const linkStyle = href ? fontStyle.link : null;
@@ -35,7 +36,7 @@ export default function WUCText({
         style,
         (centered ? { textAlign: 'center' } : null),
       ]}
-      onPress={hrefOnPress}
+      onPress={onPress || hrefOnPress}
     >{children}</Text>
   );
 }
@@ -47,6 +48,7 @@ WUCText.propTypes = {
   small: React.PropTypes.bool,
   href: React.PropTypes.string,
   style: Text.propTypes.style,
+  onPress: React.PropTypes.func,
 };
 
 WUCText.defaultProps = {
@@ -55,4 +57,5 @@ WUCText.defaultProps = {
   small: false,
   style: null,
   href: '',
+  onPress: null,
 };

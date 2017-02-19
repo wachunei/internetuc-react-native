@@ -3,8 +3,9 @@ const blue = '#4392F1';
 const white = '#fff';
 const black = '#000';
 const fontColor = '#555';
-const buttonPrimary = '#1cd67c';
-const gray = '#ccc';
+const green = '#1cd67c';
+const lightGray = '#ccc';
+const gray = '#999';
 const darkGray = '#444';
 const red = '#ED1C24';
 
@@ -14,8 +15,14 @@ export default {
   primary,
   fontColor,
   fontHyperlink: blue,
+  separatorColor: lightGray,
 
-  separatorColor: gray,
+  /* Device */
+  macTextColor: gray,
+
+  /* Devices */
+  devicesListEmptyMessage: gray,
+  devicesDoneEditingColor: green,
 
   /* Logo */
   defaultLogoColor: white,
@@ -23,6 +30,10 @@ export default {
   /* Login Error */
   errorWrapperBorder: red,
   errorTextColor: red,
+
+  /* IconButton */
+  iconButtonColor: gray,
+  iconButtonDangerColor: red,
 
   /* Inner Box */
   innerBoxBg: white,
@@ -32,12 +43,15 @@ export default {
   inputBorderBottom: lightBlue,
 
   /* WUCLoadingButton */
-  WUCLoadingButtonBg: buttonPrimary,
-  WUCLoadingButtonBorder: buttonPrimary,
+  WUCLoadingButtonBg: green,
+  WUCLoadingButtonBorder: green,
   WUCLoadingButton: white,
   WUCLoadingButtonShadow: darkGray,
-  WUCLoadingButtonDisabledBg: gray,
+  WUCLoadingButtonDisabledBg: lightGray,
 
   /* Spinner */
   defaultSpinnerColor: white,
+
+  /* Switch */
+  switchOnTint: green,
 };

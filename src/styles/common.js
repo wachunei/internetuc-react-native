@@ -25,4 +25,17 @@ export default StyleSheet.create({
   itemInnerBox: {
     flex: 1,
   },
+  itemTitle: {
+    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  itemTitleText: {
+    flex: 1,
+  },
+  itemTitleButtons: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
 });

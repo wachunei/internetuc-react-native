@@ -7,3 +7,5 @@ export const cleanUsername = (username) => {
 
   return username;
 };
+
+export const macFormat = mac => mac.match(new RegExp('.{1,2}', 'g')).join('-').toUpperCase();

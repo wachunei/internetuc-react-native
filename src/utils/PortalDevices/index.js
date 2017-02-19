@@ -62,7 +62,7 @@ export default class PortalDevices {
   }
 
   static getDevices(username, password) {
-    return this.login(username, password)
+    return PortalDevices.login(username, password)
     .then(() => fetch(URL.LIST, { method: METHODS.POST }))
     .then(responseText)
     .then((response) => {
@@ -89,7 +89,7 @@ export default class PortalDevices {
   }
 
   static editDevice(username, password, newDevice, oldName) {
-    return this.login(username, password)
+    return PortalDevices.login(username, password)
     .then(() => fetch(
       URL.EDIT,
       {
@@ -108,7 +108,7 @@ export default class PortalDevices {
   }
 
   static removeDevice(username, password, device) {
-    return this.login(username, password)
+    return PortalDevices.login(username, password)
     .then(() => fetch(
       URL.REMOVE,
       {
@@ -122,11 +122,12 @@ export default class PortalDevices {
   }
 
   static addDevice(username, password, device) {
-    return this.login(username, password)
+    return PortalDevices.login(username, password)
     .then(() => fetch(
       URL.ADD,
       {
         headers,
+        method: METHODS.POST,
         body: JSONtoForm({
           mac: device.mac,
           nombreDispositivo: device.name,
