@@ -20,7 +20,7 @@ This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar
 - [x] Activate/deactivate device
 - [ ] Add a new device
 - [ ] Edit device
-- [ ] Delete device
+- [x] Delete device
 - [ ] Internationalization
 
 
