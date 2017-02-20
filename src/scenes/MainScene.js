@@ -4,7 +4,7 @@ import {
   Scene,
 } from 'react-native-router-flux';
 
-import Main from '../components/Main';
+import Main from '../containers/Main';
 
 export default (
   <Scene

@@ -7,6 +7,9 @@ import {
 import DevicesComponent from '../components/Devices';
 
 import * as devicesActions from '../actions/devices';
+import {
+  setScene,
+} from '../actions/scenes';
 
 import {
   getDevicesData,
@@ -25,7 +28,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ ...devicesActions }, dispatch);
+  return bindActionCreators({ ...devicesActions, setScene }, dispatch);
 }
 
 export default connect(

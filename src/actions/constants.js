@@ -34,4 +34,7 @@ export default {
     setLoggingOut: 'user.setLoggingOut',
     logOut: 'user.logOut',
   },
+  scenes: {
+    setScene: 'scenes.setScene',
+  },
 };
