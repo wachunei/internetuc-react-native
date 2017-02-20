@@ -36,6 +36,7 @@ export default class Devices extends React.Component {
       updateForcedDevicesRequest,
       changeDeviceToStatus,
       removeDeviceRequest,
+      setScene,
     } = this.props;
 
     const renderPlaceholder = !devices ? (
@@ -71,6 +72,7 @@ export default class Devices extends React.Component {
       <WUCLoadingButton
         outlined={devices.length > 0 && !editMode}
         text="Agregar Dispositivo"
+        onPress={() => setScene('form')}
       />
     ) : null;
 
@@ -114,6 +116,7 @@ export default class Devices extends React.Component {
         iconName="menu"
         text="Menu"
         key="menuButton"
+        onPress={() => setScene('about')}
       />
     );
 
@@ -153,4 +156,5 @@ Devices.propTypes = {
   editMode: React.PropTypes.bool.isRequired,
   isForceUpdating: React.PropTypes.bool.isRequired,
   removeDeviceRequest: React.PropTypes.func.isRequired,
+  setScene: React.PropTypes.func.isRequired,
 };
