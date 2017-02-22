@@ -57,6 +57,9 @@ export default function device(state = initialState, action) {
         isLoading: action.isLoading,
       };
     }
+    case actions.scenes.setScene: {
+      return (action.scene !== 'form') ? { ...initialState } : state;
+    }
     default: {
       return state;
     }
