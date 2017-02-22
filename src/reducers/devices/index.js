@@ -8,6 +8,11 @@ const initialState = {
   data: undefined,
 };
 
+const defaultDeviceState = {
+  active: false,
+  updating: false,
+};
+
 export default function devices(state = initialState, action) {
   switch (action.type) {
     case actions.devices.setIsUpdating: {
@@ -81,10 +86,28 @@ export default function devices(state = initialState, action) {
         ],
       };
     }
+    case actions.devices.addDevice: {
+      return {
+        ...state,
+        data: [
+          ...state.data,
+          {
+            ...action.device,
+            ...defaultDeviceState,
+          },
+        ],
+      };
+    }
     case actions.devices.removeDevice: {
       return {
         ...state,
         data: state.data.filter(device => device.mac !== action.device.mac),
+      };
+    }
+    case actions.scenes.setScene: {
+      return {
+        ...state,
+        editMode: state.editMode && action.scene === 'devices',
       };
     }
     case actions.user.logOut: {
