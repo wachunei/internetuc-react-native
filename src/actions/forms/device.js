@@ -1,6 +1,6 @@
 import actions from '../constants';
 import {
-  getDeviceFormDevice,
+  getCleanDeviceFormDevice,
 } from '../../selectors/forms/device';
 
 import {
@@ -63,7 +63,7 @@ export function editDevice(device) {
 export function addDeviceRequest() {
   return (dispatch, getState) => {
     const state = getState();
-    const newDevice = getDeviceFormDevice(state);
+    const newDevice = getCleanDeviceFormDevice(state);
     dispatch(isFormLoading(true));
     dispatch(addDevice(newDevice));
     dispatch(setScene('devices'));

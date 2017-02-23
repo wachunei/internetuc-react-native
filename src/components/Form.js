@@ -19,6 +19,7 @@ export default function Form({
   addDeviceRequest,
   cancelForm,
   isLoading,
+  isValid,
 }) {
   const renderTitleText = type === 'edit' ? 'Editar Dispositivo' : 'Agregar Dispositivo';
   const renderSpacer = Platform.OS === 'ios' ? <KeyboardSpacer /> : null;
@@ -45,13 +46,14 @@ export default function Form({
             editable={!isLoading}
             autoCorrect={false}
             value={device.mac}
+            maxLength={17}
             onChangeText={updateMac}
           />
           <View style={style.buttonsWrapper}>
             <WUCLoadingButton
               text="Guardar"
               isLoading={isLoading}
-              disabled={isLoading}
+              disabled={isLoading || !isValid}
               onPress={addDeviceRequest}
             />
             <WUCLoadingButton
@@ -78,6 +80,7 @@ Form.defaultProps = {
   },
   type: 'new',
   isLoading: false,
+  isValid: false,
 };
 
 Form.propTypes = {
@@ -92,4 +95,5 @@ Form.propTypes = {
   addDeviceRequest: React.PropTypes.func.isRequired,
   cancelForm: React.PropTypes.func.isRequired,
   isLoading: React.PropTypes.bool,
+  isValid: React.PropTypes.bool,
 };

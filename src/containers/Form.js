@@ -11,6 +11,7 @@ import {
   getDeviceFormDevice,
   getFormType,
   getFormIsLoading,
+  getIsValidForm,
 } from '../selectors/forms/device';
 
 import * as deviceFormActions from '../actions/forms/device';
@@ -20,6 +21,7 @@ function mapStateToProps(state) {
     device: getDeviceFormDevice(state),
     formType: getFormType(state),
     isLoading: getFormIsLoading(state),
+    isValid: getIsValidForm(state),
   };
 }
 
