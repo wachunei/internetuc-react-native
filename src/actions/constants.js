@@ -26,6 +26,16 @@ export default {
       isFormLoading: 'forms.login.isFormLoading',
       submit: 'forms.login.submit',
     },
+    device: {
+      updateName: 'forms.device.updateName',
+      updateMac: 'forms.device.updateMac',
+      setEditDevice: 'forms.device.setEditDevice',
+      setFormType: 'forms.device.setFormType',
+      clear: 'forms.device.clear',
+      isFormLoading: 'forms.device.isFormLoading',
+      editDevice: 'forms.device.editDevice',
+      setErrorMessage: 'forms.device.setErrorMessage',
+    },
   },
   user: {
     setUsername: 'user.setUsername',

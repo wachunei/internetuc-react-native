@@ -48,6 +48,7 @@ export default {
   WUCLoadingButton: white,
   WUCLoadingButtonShadow: darkGray,
   WUCLoadingButtonDisabledBg: lightGray,
+  WUCLoadingButtonGray: gray,
 
   /* Spinner */
   defaultSpinnerColor: white,

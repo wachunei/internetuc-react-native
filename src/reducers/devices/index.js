@@ -8,6 +8,11 @@ const initialState = {
   data: undefined,
 };
 
+const defaultDeviceState = {
+  active: false,
+  updating: false,
+};
+
 export default function devices(state = initialState, action) {
   switch (action.type) {
     case actions.devices.setIsUpdating: {
@@ -48,30 +53,33 @@ export default function devices(state = initialState, action) {
           ...state.data.slice(0, index),
           { ...state.data[index], updating: action.updating },
           ...state.data.slice(index + 1),
-        ] : [...state.data]),
+        ] : state.data),
       };
     }
     case actions.devices.updateDevices: {
       const matchedRemoteDevices = [];
       const remoteDevices = action.devices;
-      const sortedLocalDevices = state.data ? state.data.map(device => ({
-        ...device,
-        active: (() => {
-          const index = (remoteDevices.find(remoteDevice => remoteDevice.mac === device.mac));
-          if (index) {
-            matchedRemoteDevices.push(device.mac);
-            return true;
-          }
+      const sortedLocalDevices = state.data ? state.data.map((device) => {
+        const foundDevice = remoteDevices.find(remoteDevice => remoteDevice.mac === device.mac);
+        const mac = device.mac;
+        let active = false;
+        let name = device.name;
+        if (foundDevice) {
+          matchedRemoteDevices.push(device.mac);
+          active = true;
+          name = foundDevice.name;
+        }
 
-          return false;
-        })(),
-        updating: false,
-      })).sort(byActive) : [];
-
+        return {
+          name,
+          mac,
+          active,
+          updating: false,
+        };
+      }).sort(byActive) : [];
       const newActiveRemoteDevices = remoteDevices.filter(remoteDevice => (
         !matchedRemoteDevices.find(matchedDeviceMac => matchedDeviceMac === remoteDevice.mac)
       )).map(remoteDevice => ({ ...remoteDevice, active: true, updating: false }));
-
 
       return {
         ...state,
@@ -81,10 +89,47 @@ export default function devices(state = initialState, action) {
         ],
       };
     }
+    case actions.devices.addDevice: {
+      return {
+        ...state,
+        data: [
+          ...state.data,
+          {
+            ...action.device,
+            ...defaultDeviceState,
+          },
+        ],
+      };
+    }
     case actions.devices.removeDevice: {
       return {
         ...state,
         data: state.data.filter(device => device.mac !== action.device.mac),
+      };
+    }
+    case actions.scenes.setScene: {
+      return {
+        ...state,
+        editMode: state.editMode && action.scene === 'devices',
+      };
+    }
+    case actions.forms.device.editDevice: {
+      const deviceIndex = state.data.findIndex(device => device.mac === action.device.mac);
+
+      if (deviceIndex === -1) {
+        return state;
+      }
+
+      return {
+        ...state,
+        data: [
+          ...state.data.slice(0, deviceIndex),
+          {
+            ...state.data[deviceIndex],
+            name: action.device.name,
+          },
+          ...state.data.slice(deviceIndex + 1),
+        ],
       };
     }
     case actions.user.logOut: {

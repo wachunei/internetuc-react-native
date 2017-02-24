@@ -24,7 +24,6 @@ export default StyleSheet.create({
     fontSize: 20,
   },
   logoutButton: {
-    backgroundColor: '#aaa',
     alignSelf: 'center',
   },
   section: {

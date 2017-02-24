@@ -18,6 +18,7 @@ export default function Device({
     editMode,
     onStatusChange,
     onDeviceRemovePress,
+    setEditDevice,
   }) {
   const destroyAlert = [
     `Borrar ${device.name}`,
@@ -40,6 +41,7 @@ export default function Device({
       <IconButton
         displayText
         text="Editar"
+        onPress={() => setEditDevice(device)}
       />
       <IconButton
         displayText
@@ -85,4 +87,5 @@ Device.propTypes = {
   onStatusChange: React.PropTypes.func.isRequired,
   editMode: React.PropTypes.bool.isRequired,
   onDeviceRemovePress: React.PropTypes.func.isRequired,
+  setEditDevice: React.PropTypes.func.isRequired,
 };

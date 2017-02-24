@@ -1,12 +1,13 @@
 import React from 'react';
 import {
-  View,
-  ScrollView,
   Dimensions,
+  Keyboard,
+  ScrollView,
+  View,
 } from 'react-native';
 
 import Devices from '../containers/Devices';
-import Form from './Form';
+import Form from '../containers/Form';
 import About from '../containers/About';
 
 import style from '../styles/Main';
@@ -36,6 +37,7 @@ export default class Main extends React.Component {
   }
 
   handleScrollScene(event) {
+    Keyboard.dismiss();
     const currentX = event.nativeEvent.contentOffset.x;
     if (currentX % windowWidth !== 0) {
       return;
@@ -55,11 +57,13 @@ export default class Main extends React.Component {
         horizontal
         pagingEnabled
         directionalLockEnabled
+        keyboardShouldPersistTaps="handled"
         onScroll={this.handleScrollScene}
         scrollEventThrottle={0}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         decelerationRate="fast"
+        keyboardDismissMode="on-drag"
         style={style.wrapper}
       >
         <View style={style.item}>

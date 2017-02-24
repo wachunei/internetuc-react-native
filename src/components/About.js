@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import WUCText from './WUCText';
 import WUCLoadingButton from './WUCLoadingButton';
-
+import colors from '../config/colors';
 import commonStyle from '../styles/common';
 import style from '../styles/About';
 
@@ -47,6 +47,7 @@ export default function About({
               isLoading={loggingOut}
               disabled={loggingOut}
               onPress={() => logoutAlert(logoutStart)}
+              color={colors.WUCLoadingButtonGray}
               style={style.logoutButton}
             />
           </View>

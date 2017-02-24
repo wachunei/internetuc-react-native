@@ -8,4 +8,11 @@ export const cleanUsername = (username) => {
   return username;
 };
 
-export const macFormat = mac => mac.match(new RegExp('.{1,2}', 'g')).join('-').toUpperCase();
+const MAC_SEPARATOR = '-';
+
+export const macFormat = mac => mac.match(new RegExp('[0-9a-fA-F]{2}', 'g'))
+  .join(MAC_SEPARATOR).toUpperCase();
+
+export const matchesMac = mac => /^([0-9a-fA-F]{2}[:-]?){5}([0-9a-fA-F]{2})$/.test(mac);
+
+export const cleanMac = mac => mac.replace(new RegExp(MAC_SEPARATOR, 'g'), '').toLowerCase();

@@ -8,6 +8,9 @@ import DevicesComponent from '../components/Devices';
 
 import * as devicesActions from '../actions/devices';
 import {
+  setEditDevice,
+} from '../actions/forms/device';
+import {
   setScene,
 } from '../actions/scenes';
 
@@ -28,7 +31,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ ...devicesActions, setScene }, dispatch);
+  return bindActionCreators({ ...devicesActions, setScene, setEditDevice }, dispatch);
 }
 
 export default connect(
