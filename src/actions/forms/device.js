@@ -95,6 +95,14 @@ export function editDeviceRequest() {
   return (dispatch, getState) => {
     const state = getState();
     const editedDevice = getCleanDeviceFormDevice(state);
+    if (editedDevice.active) {
+      // TODO
+    } else {
+      dispatch(editDevice(editedDevice));
+      dispatch(setScene('devices'));
+      dispatch(isFormLoading(false));
+      dispatch(clear());
+    }
   };
 }
 

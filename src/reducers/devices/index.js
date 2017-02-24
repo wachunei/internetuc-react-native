@@ -113,6 +113,25 @@ export default function devices(state = initialState, action) {
         editMode: state.editMode && action.scene === 'devices',
       };
     }
+    case actions.forms.device.editDevice: {
+      const deviceIndex = state.data.findIndex(device => device.mac === action.device.mac);
+
+      if (deviceIndex === -1) {
+        return state;
+      }
+
+      return {
+        ...state,
+        data: [
+          ...state.data.slice(0, deviceIndex),
+          {
+            ...state.data[deviceIndex],
+            name: action.device.name,
+          },
+          ...state.data.slice(deviceIndex + 1),
+        ],
+      };
+    }
     case actions.user.logOut: {
       return {
         ...initialState,
