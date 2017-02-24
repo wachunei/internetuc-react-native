@@ -53,7 +53,7 @@ export default function devices(state = initialState, action) {
           ...state.data.slice(0, index),
           { ...state.data[index], updating: action.updating },
           ...state.data.slice(index + 1),
-        ] : [...state.data]),
+        ] : state.data),
       };
     }
     case actions.devices.updateDevices: {
@@ -80,7 +80,6 @@ export default function devices(state = initialState, action) {
       const newActiveRemoteDevices = remoteDevices.filter(remoteDevice => (
         !matchedRemoteDevices.find(matchedDeviceMac => matchedDeviceMac === remoteDevice.mac)
       )).map(remoteDevice => ({ ...remoteDevice, active: true, updating: false }));
-
 
       return {
         ...state,
