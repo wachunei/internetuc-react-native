@@ -19,8 +19,8 @@ This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar
 - [x] Pull to refresh devices list
 - [x] Activate/deactivate device
 - [x] Add a new device
-- [ ] Validate new device before adding (MAC address, already exists)
-- [ ] Edit device
+- [x] Validate new device before adding (MAC address, already exists)
+- [x] Edit device
 - [x] Delete device
 - [ ] Display error messages
 - [ ] Internationalization

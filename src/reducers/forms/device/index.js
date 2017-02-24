@@ -53,7 +53,7 @@ export default function device(state = initialState, action) {
     }
     case actions.forms.device.isFormLoading: {
       return {
-        ...initialState,
+        ...state,
         isLoading: action.isLoading,
       };
     }

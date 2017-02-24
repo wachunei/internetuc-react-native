@@ -64,7 +64,6 @@ export default function Form({
               text="Cancelar"
               outlined
               color={colors.WUCLoadingButtonGray}
-              isLoading={isLoading}
               disabled={isLoading}
               onPress={cancelForm}
             />

@@ -1,4 +1,6 @@
 import actions from '../constants';
+import PortalDevices from '../../utils/PortalDevices';
+
 import {
   getCleanDeviceFormDevice,
 } from '../../selectors/forms/device';
@@ -6,6 +8,11 @@ import {
 import {
   getDevicesMacAdresses,
 } from '../../selectors/devices';
+
+import {
+  getUsername,
+  getPassword,
+} from '../../selectors/user';
 
 import {
   setScene,
@@ -96,7 +103,22 @@ export function editDeviceRequest() {
     const state = getState();
     const editedDevice = getCleanDeviceFormDevice(state);
     if (editedDevice.active) {
-      // TODO
+      dispatch(isFormLoading(true));
+      const username = getUsername(state);
+      const password = getPassword(state);
+      PortalDevices.editDevice(username, password, editedDevice)
+      .then(() => {
+        dispatch(editDevice(editedDevice));
+        dispatch(isFormLoading(false));
+        dispatch(setScene('devices'));
+        dispatch(clear());
+      })
+      .catch((error) => {
+        if (error) {
+          dispatch(setErrorMessage(error));
+        }
+        dispatch(isFormLoading(false));
+      });
     } else {
       dispatch(editDevice(editedDevice));
       dispatch(setScene('devices'));
