@@ -42,10 +42,21 @@ export default class WUCLoadingButton extends React.Component {
       onPress,
       outlined,
       style,
+      color,
     } = this.props;
 
-    const outlinedTextStyle = outlined ? buttonStyle.outlinedText : null;
-    const outlinedStyle = outlined ? buttonStyle.outlined : null;
+    const outlinedTextStyle = outlined ? [
+      buttonStyle.outlinedText,
+      color && { color },
+    ] : null;
+    const outlinedStyle = outlined ? [
+      buttonStyle.outlined,
+      color && { borderColor: color },
+    ] : null;
+
+    const colorBackground = color ? {
+      backgroundColor: color,
+    } : null;
 
     const renderButton = isLoading ? (
       <Animated.View
@@ -67,7 +78,7 @@ export default class WUCLoadingButton extends React.Component {
 
     return (
       <TouchableOpacity
-        style={[buttonStyle.wrapper, style, disabledStyle, outlinedStyle]}
+        style={[buttonStyle.wrapper, colorBackground, style, disabledStyle, outlinedStyle]}
         disabled={disabled}
         onPress={onPress}
       >
@@ -83,6 +94,7 @@ WUCLoadingButton.defaultProps = {
   outlined: false,
   onPress: f => f,
   style: null,
+  color: null,
 };
 
 WUCLoadingButton.propTypes = {
@@ -92,4 +104,5 @@ WUCLoadingButton.propTypes = {
   disabled: React.PropTypes.bool,
   outlined: React.PropTypes.bool,
   style: View.propTypes.style,
+  color: React.PropTypes.string,
 };

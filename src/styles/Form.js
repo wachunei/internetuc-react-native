@@ -12,4 +12,7 @@ export default StyleSheet.create({
   buttonsWrapper: {
     marginTop: 20,
   },
+  disabledStyle: {
+    opacity: 0.3,
+  },
 });

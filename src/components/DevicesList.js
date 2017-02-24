@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  LayoutAnimation,
   ListView,
   RefreshControl,
   View,
@@ -44,6 +43,7 @@ export default class DevicesList extends React.Component {
         editMode={this.props.editMode}
         onStatusChange={this.props.onDeviceStatusChange}
         onDeviceRemovePress={this.props.onDeviceRemovePress}
+        setEditDevice={this.props.setEditDevice}
       />
     );
   }
@@ -88,4 +88,5 @@ DevicesList.propTypes = {
   onDeviceStatusChange: React.PropTypes.func.isRequired,
   pointerEvents: React.PropTypes.string,
   onDeviceRemovePress: React.PropTypes.func.isRequired,
+  setEditDevice: React.PropTypes.func.isRequired,
 };

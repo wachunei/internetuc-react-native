@@ -36,6 +36,7 @@ export default class Devices extends React.Component {
       updateForcedDevicesRequest,
       changeDeviceToStatus,
       removeDeviceRequest,
+      setEditDevice,
       setScene,
     } = this.props;
 
@@ -50,6 +51,7 @@ export default class Devices extends React.Component {
         onRefresh={updateForcedDevicesRequest}
         onDeviceStatusChange={changeDeviceToStatus}
         onDeviceRemovePress={removeDeviceRequest}
+        setEditDevice={setEditDevice}
         style={isUpdating && style.updatingList}
         pointerEvents={isUpdating ? 'box-only' : 'auto'}
       />
@@ -156,5 +158,6 @@ Devices.propTypes = {
   editMode: React.PropTypes.bool.isRequired,
   isForceUpdating: React.PropTypes.bool.isRequired,
   removeDeviceRequest: React.PropTypes.func.isRequired,
+  setEditDevice: React.PropTypes.func.isRequired,
   setScene: React.PropTypes.func.isRequired,
 };

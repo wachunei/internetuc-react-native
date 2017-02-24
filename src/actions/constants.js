@@ -34,6 +34,7 @@ export default {
       clear: 'forms.device.clear',
       isFormLoading: 'forms.device.isFormLoading',
       editDevice: 'forms.device.editDevice',
+      setErrorMessage: 'forms.device.setErrorMessage',
     },
   },
   user: {

@@ -4,6 +4,7 @@ import {
   Platform,
 } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
+import colors from '../config/colors';
 import WUCText from './WUCText';
 import WUCTextInput from './WUCTextInput';
 import WUCLoadingButton from './WUCLoadingButton';
@@ -17,11 +18,13 @@ export default function Form({
   updateName,
   updateMac,
   addDeviceRequest,
+  editDeviceRequest,
   cancelForm,
   isLoading,
   isValid,
 }) {
-  const renderTitleText = type === 'edit' ? 'Editar Dispositivo' : 'Agregar Dispositivo';
+  const renderTitleText = type === 'new' ? 'Agregar Dispositivo' : 'Editar Dispositivo';
+  const saveButtonOnPress = type === 'new' ? addDeviceRequest : editDeviceRequest;
   const renderSpacer = Platform.OS === 'ios' ? <KeyboardSpacer /> : null;
   return (
     <View style={commonStyle.viewWrapper}>
@@ -43,23 +46,24 @@ export default function Form({
             autoFocus={false}
             placeholder="mac"
             autoCapitalize="none"
-            editable={!isLoading}
+            editable={!isLoading && type !== 'edit'}
             autoCorrect={false}
             value={device.mac}
             maxLength={17}
             onChangeText={updateMac}
+            style={type === 'edit' && style.disabledStyle}
           />
           <View style={style.buttonsWrapper}>
             <WUCLoadingButton
               text="Guardar"
               isLoading={isLoading}
               disabled={isLoading || !isValid}
-              onPress={addDeviceRequest}
+              onPress={saveButtonOnPress}
             />
             <WUCLoadingButton
               text="Cancelar"
               outlined
-              color="gray"
+              color={colors.WUCLoadingButtonGray}
               isLoading={isLoading}
               disabled={isLoading}
               onPress={cancelForm}
@@ -93,6 +97,7 @@ Form.propTypes = {
   updateName: React.PropTypes.func.isRequired,
   updateMac: React.PropTypes.func.isRequired,
   addDeviceRequest: React.PropTypes.func.isRequired,
+  editDeviceRequest: React.PropTypes.func.isRequired,
   cancelForm: React.PropTypes.func.isRequired,
   isLoading: React.PropTypes.bool,
   isValid: React.PropTypes.bool,

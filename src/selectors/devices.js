@@ -23,3 +23,8 @@ export const getDevicesData = createSelector(
   getDevices,
   devices => devices.data,
 );
+
+export const getDevicesMacAdresses = createSelector(
+  getDevicesData,
+  data => data.map(device => device.mac),
+);
