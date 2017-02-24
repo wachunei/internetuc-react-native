@@ -7,7 +7,12 @@ Easily manage your wifi devices allowed in UC wireless network.
 ⚠️ This is a WIP, no release versions yet!
 
 ### 📱 Screenshots
-⚠️ This is a WIP, no screenshots yet!
+
+<img src="http://i.imgur.com/6PoyR9U.png" width="200">
+<img src="http://i.imgur.com/NC2QvnQ.png" width="200">
+<img src="http://i.imgur.com/YgfB0VV.png" width="200">
+<img src="http://i.imgur.com/nvcFICB.png" width="200">
+
 ## ℹ️ About
 This is a clone of a series of [applications](https://negebauer.github.io/projects/wifiuc) made for iOS and Electron.
 This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar/), which is an Angular 1.x application 😨
