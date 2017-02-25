@@ -24,6 +24,8 @@ const portalErrorPromise = (response) => {
   });
 };
 
+let getDevicesAttempts = 0;
+
 export default class PortalDevices {
   static handleFormLogin(response, username, password) {
     const $ = cheerio.load(response);
@@ -68,8 +70,15 @@ export default class PortalDevices {
     .then((response) => {
       const $ = cheerio.load(response);
       if ($('.listaRegMac').length === 0) {
+        if (getDevicesAttempts >= 10) {
+          console.log('10 INTENTOS');
+          getDevicesAttempts = 0;
+          throw new Error('INTENTAMOS CALETA PERO NO LO LOGRAMOS');
+        }
+        getDevicesAttempts += 1;
         return this.getDevices(username, password);
       }
+      getDevicesAttempts = 0;
       const devices = [];
       $('.listaRegMac tr[id^=registro_]').each((i, el) => {
         devices.push({
@@ -83,8 +92,8 @@ export default class PortalDevices {
 
       return Promise.resolve(devices);
     })
-    .catch(() => {
-      throw new Error('An error ocurred trying to load devices');
+    .catch((error) => {
+      throw error || new Error('An error ocurred trying to load devices');
     });
   }
 
