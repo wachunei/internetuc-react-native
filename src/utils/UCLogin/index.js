@@ -24,6 +24,18 @@ export default class UCLogin {
     ).then(handleError);
   }
 
+  static current() {
+    return fetch(
+      URL.current,
+      {
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      },
+    ).then(handleError)
+    .then(r => r.json());
+  }
+
   static logout() {
     return fetch(URL.logout).then(handleError);
   }

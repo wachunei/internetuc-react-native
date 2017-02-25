@@ -1,9 +1,12 @@
 import {
   Actions,
 } from 'react-native-router-flux';
-
+import {
+  capitalize,
+} from '../utils';
 import actions from './constants';
 import UCLogin from '../utils/UCLogin';
+import PortalDevices from '../utils/PortalDevices';
 
 export function setUsername(username) {
   return {
@@ -42,12 +45,26 @@ export function logOut() {
 export function logoutStart() {
   return (dispatch) => {
     dispatch(setLoggingOut(true));
-    return UCLogin.logout().then(() => {
+    return Promise.all([
+      UCLogin.logout(),
+      PortalDevices.logout(),
+    ]).then(() => {
       dispatch(logOut());
       setLoggingOut(false);
       Actions.Login();
     }).catch(() => {
       dispatch(setLoggingOut(false));
+    });
+  };
+}
+
+export function setFullNameRequest() {
+  return (dispatch) => {
+    UCLogin.current()
+    .then((data) => {
+      if (data.props && data.props.distinguishedName) {
+        dispatch(setFullName(capitalize(data.props.distinguishedName)));
+      }
     });
   };
 }

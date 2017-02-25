@@ -13,6 +13,7 @@ import {
 import {
   setUsername,
   setPassword,
+  setFullNameRequest,
 } from '../user';
 
 export function updateUsername(username) {
@@ -101,6 +102,7 @@ export function submit() {
       dispatch(clearPassword());
       dispatch(isFormLoading(false));
       Actions.Main();
+      dispatch(setFullNameRequest());
     })
     .catch(() => {
       dispatch(displayGenericError());
