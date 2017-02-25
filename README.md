@@ -18,7 +18,7 @@ This is a clone of a series of [applications](https://negebauer.github.io/projec
 This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar/), which is an Angular 1.x application 😨
 ## Features
 - [x] Log in
-- [ ] Get user full name
+- [x] Get user full name
 - [x] Log out
 - [x] Get devices list
 - [x] Pull to refresh devices list
