@@ -1,9 +1,10 @@
 import React from 'react';
 import {
   LayoutAnimation,
-  KeyboardAvoidingView,
+  Platform,
   View,
 } from 'react-native';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 import WUCText from './WUCText';
 import WUCTextInput from './WUCTextInput';
 import WUCLogo from './WUCLogo';
@@ -35,8 +36,9 @@ export default class Login extends React.Component {
         <WUCText style={style.errorText}>Hubo un error en iniciar sesión</WUCText>
       </View>
     ) : null;
+    const renderSpacer = Platform.OS === 'ios' ? <KeyboardSpacer /> : null;
     return (
-      <KeyboardAvoidingView style={style.wrapper} behavior="padding">
+      <View style={style.wrapper}>
         <View style={style.logoHeader}>
           <WUCLogo size="85" />
         </View>
@@ -82,7 +84,8 @@ export default class Login extends React.Component {
           </View>
         </View>
         <View style={style.bottomSpacer} />
-      </KeyboardAvoidingView>
+        {renderSpacer}
+      </View>
     );
   }
 }
