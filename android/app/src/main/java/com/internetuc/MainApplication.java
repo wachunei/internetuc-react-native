@@ -1,4 +1,4 @@
-package com.rnwifiuc;
+package com.internetuc;
 
 import android.app.Application;
 

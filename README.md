@@ -1,9 +1,10 @@
-# Wifi UC React Native
-Wifi UC clone made with React Native and Redux ✨
+# <img src="http://i.imgur.com/Iy8Q9rJ.png" width="400" alt="Internet UC">
+
+Internet UC is a Wifi UC fork made with React Native and Redux ✨
 
 Easily manage your wifi devices allowed in UC wireless network.
 
-### Install
+### 📦 Install
 ⚠️ This is a WIP, no release versions yet!
 
 ### 📱 Screenshots
