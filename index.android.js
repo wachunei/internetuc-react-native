@@ -3,4 +3,4 @@ import {
 } from 'react-native';
 import Root from './src/Root';
 
-AppRegistry.registerComponent('RNWifiUC', () => Root);
+AppRegistry.registerComponent('InternetUC', () => Root);
