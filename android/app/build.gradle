@@ -90,11 +90,21 @@ android {
         applicationId "com.internetuc"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+    }
+    signingConfigs {
+      release {
+          if (project.hasProperty('INTERNETUC_RELEASE_STORE_FILE')) {
+              storeFile file(INTERNETUC_RELEASE_STORE_FILE)
+              storePassword INTERNETUC_RELEASE_STORE_PASSWORD
+              keyAlias INTERNETUC_RELEASE_KEY_ALIAS
+              keyPassword INTERNETUC_RELEASE_KEY_PASSWORD
+          }
+      }
     }
     splits {
         abi {
@@ -108,6 +118,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release

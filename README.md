@@ -8,11 +8,17 @@ Easily manage your wifi devices allowed in UC wireless network.
 ⚠️ This is a WIP, no release versions yet!
 
 ### 📱 Screenshots
-
+#### iOS
 <img src="http://i.imgur.com/6PoyR9U.png" width="200">
 <img src="http://i.imgur.com/NC2QvnQ.png" width="200">
 <img src="http://i.imgur.com/YgfB0VV.png" width="200">
 <img src="http://i.imgur.com/nvcFICB.png" width="200">
+#### Android
+
+<img src="http://i.imgur.com/JW3L60a.png" width="200">
+<img src="http://i.imgur.com/GtGAUHd.png" width="200">
+<img src="http://i.imgur.com/caHr3Yc.png" width="200">
+<img src="http://i.imgur.com/gQA16f6.png" width="200">
 
 ## ℹ️ About
 This is a clone of a series of [applications](https://negebauer.github.io/projects/wifiuc) made for iOS and Electron.
