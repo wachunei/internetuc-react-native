@@ -63,7 +63,7 @@ export default function About({
             <WUCText centered style={style.paragraph}>
               El código de esta aplicación es abierto y se puede
               {' '}
-              <WUCText href="https://github.com/wachunei/wifiuc-react-native">
+              <WUCText href="https://github.com/wachunei/internetuc-react-native">
                 encontrar en Github.
               </WUCText>
             </WUCText>

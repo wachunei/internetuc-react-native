@@ -5,6 +5,7 @@ import {
   View,
 } from 'react-native';
 import Device from './Device';
+import colors from '../config/colors';
 
 const renderSeparator = (sectionID, rowID) => (
   <View
@@ -59,6 +60,7 @@ export default class DevicesList extends React.Component {
           <RefreshControl
             refreshing={this.props.isUpdating}
             onRefresh={this.props.onRefresh}
+            colors={[colors.refreshControl]}
           /> : null
         }
         pointerEvents={this.props.pointerEvents}

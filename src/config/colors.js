@@ -23,6 +23,7 @@ export default {
   /* Devices */
   devicesListEmptyMessage: gray,
   devicesDoneEditingColor: green,
+  refreshControl: lightBlue,
 
   /* Logo */
   defaultLogoColor: white,
