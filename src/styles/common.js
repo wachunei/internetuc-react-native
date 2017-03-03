@@ -1,4 +1,5 @@
 import {
+  Platform,
   StyleSheet,
 } from 'react-native';
 
@@ -19,7 +20,14 @@ export default StyleSheet.create({
     shadowRadius: 5,
   },
   viewWrapper: {
-    paddingVertical: 20,
+    ...Platform.select({
+      ios: {
+        paddingVertical: 20,
+      },
+      android: {
+        paddingVertical: 10,
+      },
+    }),
     flex: 1,
   },
   itemInnerBox: {
