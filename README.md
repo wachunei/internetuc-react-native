@@ -5,7 +5,10 @@ Internet UC is a Wifi UC fork made with React Native and Redux ✨
 Easily manage your wifi devices allowed in UC wireless network.
 
 ### 📦 Install
-⚠️ This is a WIP, no release versions yet!
+
+<a href='https://play.google.com/store/apps/details?id=com.internetuc&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="200"/></a>
+
+⚠️ This is a WIP, iOS release coming soon.
 
 ### 📱 Screenshots
 #### iOS
