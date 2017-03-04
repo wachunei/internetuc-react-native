@@ -1,4 +1,4 @@
-# <img src="http://i.imgur.com/Iy8Q9rJ.png" width="400" alt="Internet UC">
+# <img src="http://i.imgur.com/hahGLVQ.png" width="400" alt="Internet UC">
 
 Internet UC is a Wifi UC fork made with React Native and Redux ✨
 
