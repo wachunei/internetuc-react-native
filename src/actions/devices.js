@@ -1,5 +1,16 @@
 import actions from './constants';
 import PortalDevices from '../utils/PortalDevices';
+import {
+  ERRORS as PortalDevicesErrors,
+} from '../utils/PortalDevices/utils';
+
+import {
+  logoutStart,
+} from './user';
+
+import {
+  displayError as formLoginDisplayError,
+} from './forms/login';
 
 import {
   getUsername,
@@ -47,8 +58,20 @@ export function clearErrorMessage() {
   };
 }
 
-const showAndClearMessage = (message, dispatch) => {
-  dispatch(setErrorMessage(message));
+const showAndClearMessage = (error, dispatch) => {
+  if (error.portalError) {
+    dispatch(setErrorMessage(error.error));
+  } else {
+    switch (error.message) {
+      case PortalDevicesErrors.unauthorized:
+        dispatch(formLoginDisplayError(error.message));
+        dispatch(logoutStart());
+        break;
+      default:
+        dispatch(setErrorMessage(error.message));
+        break;
+    }
+  }
   setTimeout(() => dispatch(clearErrorMessage()), 2000);
 };
 
@@ -107,12 +130,8 @@ export function updateDevicesRequest() {
     .then((devices) => {
       dispatch(updateDevices(devices));
       dispatch(clearDevicesUpdating());
-    }).catch((data) => {
-      if (data.portalError) {
-        showAndClearMessage(data.error, dispatch);
-      } else {
-        showAndClearMessage(data.message, dispatch);
-      }
+    }).catch((error) => {
+      showAndClearMessage(error, dispatch);
       dispatch(clearDevicesUpdating());
     });
   };
@@ -138,9 +157,7 @@ export function changeDeviceToStatus(device, newStatus) {
       dispatch(setDeviceStatus(device, newStatus));
     })
     .catch((error) => {
-      if (error.portalError) {
-        showAndClearMessage(error.error, dispatch);
-      }
+      showAndClearMessage(error, dispatch);
       dispatch(setDeviceUpdating(device, false));
     });
   };
@@ -158,9 +175,7 @@ export function removeDeviceRequest(device) {
           dispatch(removeDevice(device));
         })
         .catch((error) => {
-          if (error.portalError) {
-            showAndClearMessage(error.error, dispatch);
-          }
+          showAndClearMessage(error, dispatch);
           dispatch(setDeviceUpdating(device, false));
         });
     }

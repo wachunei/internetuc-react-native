@@ -8,29 +8,45 @@ import {
 } from '../fetchUtils';
 import {
   URL,
+  ERRORS,
 } from './utils';
+
+const dom = {
+  inputExecution: 'input[name="execution"]',
+  inputLt: 'input[name="lt"]',
+  listaRegMac: '.listaRegMac',
+  rowReg: 'tr[id^=registro_]',
+  rowName: 'td div[id^=nombreReg]',
+  rowMac: 'td div[id^=macReg]',
+  success: '.exito',
+  error: '.error',
+};
+
+const maxGetDevicesAttempts = 5;
 
 const responseText = response => response.text();
 
 const portalErrorPromise = (response) => {
   const $ = cheerio.load(response);
-  if ($('.exito').length > 0) {
-    return Promise.resolve($('.exito').text());
+  if ($(dom.success).length > 0) {
+    return Promise.resolve($(dom.success).text());
   }
 
   return Promise.reject({
-    error: $('.error').text(),
+    error: $(dom.error).text(),
     portalError: true,
   });
 };
 
+let getDevicesAttempts = 0;
+
 export default class PortalDevices {
   static handleFormLogin(response, username, password) {
     const $ = cheerio.load(response);
-    const $execution = $('input[name="execution"]');
+    const $execution = $(dom.inputExecution);
     if ($execution.length > 0) {
-      const execution = $('input[name="execution"]').val();
-      const lt = $('input[name="lt"]').val();
+      const execution = $(dom.inputExecution).val();
+      const lt = $(dom.inputLt).val();
       const body = JSONtoForm({
         lt,
         execution,
@@ -67,14 +83,20 @@ export default class PortalDevices {
     .then(responseText)
     .then((response) => {
       const $ = cheerio.load(response);
-      if ($('.listaRegMac').length === 0) {
+      if ($(dom.listaRegMac).length === 0) {
+        if (getDevicesAttempts >= maxGetDevicesAttempts) {
+          getDevicesAttempts = 0;
+          throw new Error(ERRORS.unauthorized);
+        }
+        getDevicesAttempts += 1;
         return this.getDevices(username, password);
       }
+      getDevicesAttempts = 0;
       const devices = [];
-      $('.listaRegMac tr[id^=registro_]').each((i, el) => {
+      $(`${dom.listaRegMac} ${dom.rowReg}`).each((i, el) => {
         devices.push({
-          name: $(el).find('td div[id^=nombreReg]').text(),
-          mac: $(el).find('td div[id^=macReg]').text()
+          name: $(el).find(dom.rowName).text(),
+          mac: $(el).find(dom.rowMac).text()
             .split('-')
             .join('')
             .toLowerCase(),
@@ -83,8 +105,8 @@ export default class PortalDevices {
 
       return Promise.resolve(devices);
     })
-    .catch(() => {
-      throw new Error('An error ocurred trying to load devices');
+    .catch((error) => {
+      throw error || new Error(ERRORS.default);
     });
   }
 

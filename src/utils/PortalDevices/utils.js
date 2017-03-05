@@ -10,3 +10,9 @@ export const URL = {
   REMOVE: `${MAC_HOST}/EliminarRegistroMac_controller`,
   ADD: `${MAC_HOST}/AgregarRegistroMac_controller`,
 };
+
+
+export const ERRORS = {
+  default: 'An error has ocurred.',
+  unauthorized: 'You are not authorized to use UC wireless network.',
+};

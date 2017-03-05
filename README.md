@@ -1,6 +1,6 @@
 # <img src="http://i.imgur.com/hahGLVQ.png" width="400" alt="Internet UC">
 
-Internet UC is a Wifi UC fork made with React Native and Redux ✨
+Internet UC is a Wifi UC clone made with React Native and Redux ✨
 
 Easily manage your wifi devices allowed in UC wireless network.
 
@@ -26,7 +26,7 @@ Easily manage your wifi devices allowed in UC wireless network.
 ## ℹ️ About
 This is a clone of a series of [applications](https://negebauer.github.io/projects/wifiuc) made for iOS and Electron.
 This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar/), which is an Angular 1.x application 😨
-## Features
+## ⚡️ Features
 - [x] Log in
 - [x] Get user full name
 - [x] Log out
@@ -37,6 +37,7 @@ This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar
 - [x] Validate new device before adding (MAC address, already exists)
 - [x] Edit device
 - [x] Delete device
+- [x] Kick unauthorized wifi users (alumni)
 - [ ] Display error messages
 - [ ] Internationalization
 

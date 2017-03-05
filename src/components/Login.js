@@ -33,7 +33,7 @@ export default class Login extends React.Component {
     } = this.props;
     const renderError = error ? (
       <View style={style.errorWrapper}>
-        <WUCText style={style.errorText}>Hubo un error en iniciar sesión</WUCText>
+        <WUCText style={style.errorText}>{error}</WUCText>
       </View>
     ) : null;
     const renderSpacer = Platform.OS === 'ios' ? <KeyboardSpacer /> : null;
