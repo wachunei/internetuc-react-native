@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,18 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Jn7-H3-jfS">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="T0I-hK-euk">
                     <rect key="frame" x="140" y="140" width="200" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="sgI-8M-DZM"/>
-                        <constraint firstAttribute="width" secondItem="Jn7-H3-jfS" secondAttribute="height" multiplier="1:1" id="xcr-Oi-D6G"/>
+                        <constraint firstAttribute="height" constant="200" id="S5N-nD-NQN"/>
+                        <constraint firstAttribute="width" constant="200" id="o5x-uR-mZO"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.7803921568627451" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Jn7-H3-jfS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2kl-Ha-q29"/>
-                <constraint firstItem="Jn7-H3-jfS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bcG-NQ-Wj8"/>
+                <constraint firstItem="T0I-hK-euk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HQj-3v-tdG"/>
+                <constraint firstItem="T0I-hK-euk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ls7-jo-aYm"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
