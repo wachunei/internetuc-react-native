@@ -22,6 +22,8 @@ const dom = {
   error: '.error',
 };
 
+const maxGetDevicesAttempts = 5;
+
 const responseText = response => response.text();
 
 const portalErrorPromise = (response) => {
@@ -82,7 +84,7 @@ export default class PortalDevices {
     .then((response) => {
       const $ = cheerio.load(response);
       if ($(dom.listaRegMac).length === 0) {
-        if (getDevicesAttempts >= 10) {
+        if (getDevicesAttempts >= maxGetDevicesAttempts) {
           getDevicesAttempts = 0;
           throw new Error(ERRORS.unauthorized);
         }
