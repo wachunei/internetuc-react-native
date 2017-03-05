@@ -11,11 +11,16 @@ import {
   getScene,
 } from '../selectors/scenes';
 
+import {
+  getDevicesData,
+} from '../selectors/devices';
+
 import * as scenesActions from '../actions/scenes';
 
 function mapStateToProps(state) {
   return {
     scene: getScene(state),
+    devices: getDevicesData(state),
   };
 }
 
