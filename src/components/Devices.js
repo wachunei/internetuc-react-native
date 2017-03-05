@@ -84,7 +84,7 @@ export default class Devices extends React.Component {
         iconName="refresh"
         text="Update"
         onPress={updateDevicesRequest}
-        disabled={isUpdating || isForceUpdating}
+        disabled={isUpdating || isForceUpdating || !devices}
         key="refreshButton"
       />
     );
@@ -95,7 +95,7 @@ export default class Devices extends React.Component {
         iconName="edit"
         text="Editar"
         onPress={() => setEditMode(true)}
-        disabled={isUpdating || isForceUpdating || (devices && devices.length === 0)}
+        disabled={isUpdating || isForceUpdating || !devices || (devices && devices.length === 0)}
         key="editButton"
       />
     );
@@ -118,6 +118,7 @@ export default class Devices extends React.Component {
         iconName="menu"
         text="Menu"
         key="menuButton"
+        disabled={!devices}
         onPress={() => setScene('about')}
       />
     );

@@ -87,6 +87,7 @@ export default class Main extends React.Component {
           initialPage={1}
           keyboardDismissMode="on-drag"
           onPageSelected={this.handleScrollScene}
+          scrollEnabled={this.props.devices !== undefined}
           style={style.wrapper}
         >
           {pagerItems}
@@ -107,6 +108,7 @@ export default class Main extends React.Component {
         showsVerticalScrollIndicator={false}
         decelerationRate="fast"
         keyboardDismissMode="on-drag"
+        scrollEnabled={this.props.devices !== undefined}
         style={style.wrapper}
       >
         {pagerItems}
@@ -117,9 +119,11 @@ export default class Main extends React.Component {
 
 Main.defaultProps = {
   scene: 'devices',
+  devices: undefined,
 };
 
 Main.propTypes = {
   scene: React.PropTypes.string,
   setScene: React.PropTypes.func.isRequired,
+  devices: React.PropTypes.arrayOf(React.PropTypes.object),
 };
