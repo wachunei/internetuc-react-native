@@ -5,6 +5,7 @@ const initialState = {
   isUpdating: false,
   isForceUpdating: false,
   editMode: false,
+  error: undefined,
   data: undefined,
 };
 
@@ -31,6 +32,18 @@ export default function devices(state = initialState, action) {
       return {
         ...state,
         editMode: action.editMode,
+      };
+    }
+    case actions.devices.setErrorMessage: {
+      return {
+        ...state,
+        error: action.error,
+      };
+    }
+    case actions.devices.clearErrorMessage: {
+      return {
+        ...state,
+        error: undefined,
       };
     }
     case actions.devices.setDeviceStatus: {
