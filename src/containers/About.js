@@ -17,6 +17,11 @@ import {
   logoutStart,
 } from '../actions/user';
 
+import {
+  setScene,
+} from '../actions/scenes';
+
+
 function mapStateToProps(state) {
   return {
     username: getUsername(state),
@@ -26,7 +31,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ logoutStart }, dispatch);
+  return bindActionCreators({ logoutStart, setScene }, dispatch);
 }
 
 export default connect(

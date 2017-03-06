@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import WUCText from './WUCText';
 import WUCLoadingButton from './WUCLoadingButton';
+import IconButton from './IconButton';
 import colors from '../config/colors';
 import commonStyle from '../styles/common';
 import style from '../styles/About';
@@ -27,10 +28,20 @@ export default function About({
   username,
   logoutStart,
   loggingOut,
+  setScene,
 }) {
   return (
     <View style={commonStyle.viewWrapper}>
       <View style={[commonStyle.innerBox, commonStyle.itemInnerBox]}>
+        <IconButton
+          displayIcon
+          displayText
+          iconPosition="left"
+          iconName="arrow-back"
+          text="Volver a dispositivos"
+          onPress={() => setScene('devices')}
+          key="backToDevicesButton"
+        />
         <ScrollView contentContainerStyle={style.aboutBox}>
           <View style={style.currentUserBox}>
             <View style={style.currentUserBoxFullNameWrapper}>
@@ -47,7 +58,8 @@ export default function About({
               isLoading={loggingOut}
               disabled={loggingOut}
               onPress={() => logoutAlert(logoutStart)}
-              color={colors.WUCLoadingButtonGray}
+              color={colors.WUCLoadingButtonRed}
+              outlined
               style={style.logoutButton}
             />
           </View>
@@ -90,4 +102,5 @@ About.propTypes = {
   username: React.PropTypes.string.isRequired,
   loggingOut: React.PropTypes.bool,
   logoutStart: React.PropTypes.func.isRequired,
+  setScene: React.PropTypes.func.isRequired,
 };

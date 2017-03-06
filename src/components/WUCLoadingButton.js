@@ -58,6 +58,8 @@ export default class WUCLoadingButton extends React.Component {
       backgroundColor: color,
     } : null;
 
+    const spinnerColor = outlined && color ? { fillColor: color } : {};
+
     const renderButton = isLoading ? (
       <Animated.View
         style={[
@@ -70,7 +72,7 @@ export default class WUCLoadingButton extends React.Component {
           ] },
         ]}
       >
-        <WUCSpinner size={15} />
+        <WUCSpinner size={15} {...spinnerColor} />
       </Animated.View>
     ) : (<WUCText style={[buttonStyle.text, outlinedTextStyle]}>{text.toUpperCase()}</WUCText>);
 

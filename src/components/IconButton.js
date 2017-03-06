@@ -16,11 +16,13 @@ export default function IconButton({
   text,
   onPress,
   disabled,
+  iconPosition,
   color,
   style,
 }) {
   const renderText = displayText ? (
     <WUCText
+      key="text"
       style={[
         buttonStyle.text,
         color ? { color } : null,
@@ -33,18 +35,20 @@ export default function IconButton({
 
   const renderIcon = displayIcon ? (
     <Icon
+      key="icon"
       name={iconName}
       style={[buttonStyle.icon, color ? { color } : null, disabled ? buttonStyle.disabled : null]}
     />
   ) : null;
+
+  const renderButton = iconPosition === 'left' ? [renderIcon, renderText] : [renderText, renderIcon];
   return (
     <TouchableOpacity
       disabled={disabled}
       onPress={onPress}
       style={[buttonStyle.button, style]}
     >
-      {renderText}
-      {renderIcon}
+      {renderButton}
     </TouchableOpacity>
   );
 }
@@ -58,10 +62,12 @@ IconButton.defaultProps = {
   onPress: null,
   style: null,
   color: null,
+  iconPosition: 'right',
 };
 
 IconButton.propTypes = {
   iconName: React.PropTypes.string,
+  iconPosition: React.PropTypes.string,
   displayIcon: React.PropTypes.bool,
   displayText: React.PropTypes.bool,
   text: React.PropTypes.string,
