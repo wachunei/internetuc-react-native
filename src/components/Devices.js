@@ -115,7 +115,7 @@ export default class Devices extends React.Component {
     const renderMenuButton = (
       <IconButton
         displayIcon
-        iconName="menu"
+        iconName="account-circle"
         text="Menu"
         key="menuButton"
         disabled={!devices}
