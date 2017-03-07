@@ -28,14 +28,32 @@ const responseText = response => response.text();
 
 const portalErrorPromise = (response) => {
   const $ = cheerio.load(response);
-  if ($(dom.success).length > 0) {
-    return Promise.resolve($(dom.success).text());
+  const $domSuccess = $(dom.success);
+  if ($domSuccess.length > 0) {
+    return Promise.resolve($domSuccess.text());
   }
 
-  return Promise.reject({
-    error: $(dom.error).text(),
-    portalError: true,
-  });
+  const $domError = $(dom.error);
+  if ($domError.length > 0) {
+    return Promise.reject({
+      error: $domError.text(),
+      portalError: true,
+    });
+  }
+
+  if (response.indexOf('CAS') !== -1) {
+    return Promise.reject({ CASError: true });
+  }
+
+  throw new Error(ERRORS.default);
+};
+
+const handleCASError = (error, dispatcher) => {
+  if (error.CASError) {
+    return dispatcher();
+  }
+
+  throw error;
 };
 
 let getDevicesAttempts = 0;
@@ -126,7 +144,11 @@ export default class PortalDevices {
       },
     ))
     .then(responseText)
-    .then(portalErrorPromise);
+    .then(portalErrorPromise)
+    .catch(error => handleCASError(
+      error,
+      () => PortalDevices.editDevice(username, password, newDevice, oldName),
+    ));
   }
 
   static removeDevice(username, password, device) {
@@ -140,7 +162,11 @@ export default class PortalDevices {
       },
     ))
     .then(responseText)
-    .then(portalErrorPromise);
+    .then(portalErrorPromise)
+    .catch(error => handleCASError(
+      error,
+      () => PortalDevices.removeDevice(username, password, device),
+    ));
   }
 
   static addDevice(username, password, device) {
@@ -157,7 +183,11 @@ export default class PortalDevices {
       },
     ))
     .then(responseText)
-    .then(portalErrorPromise);
+    .then(portalErrorPromise)
+    .catch(error => handleCASError(
+      error,
+      () => PortalDevices.addDevice(username, password, device),
+    ));
   }
 
   static logout() {

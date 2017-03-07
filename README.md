@@ -38,7 +38,7 @@ This version is based on [the latter](https://github.com/wachunei/wifiuc-menubar
 - [x] Edit device
 - [x] Delete device
 - [x] Kick unauthorized wifi users (alumni)
-- [ ] Display error messages
+- [x] Display error messages
 - [ ] Internationalization
 
 
