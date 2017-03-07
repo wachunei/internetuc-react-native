@@ -55,6 +55,7 @@ Tools we're using:
 * [`react-native-vector-icons`](https://github.com/oblador/react-native-vector-icons): Vector icons
 * [`react-native-keyboard-spacer`](https://github.com/Andr3wHur5t/react-native-keyboard-spacer): A keyboard spacer to shrink views when keyboard is being displayed
 * [`react-native-debugger`](https://github.com/jhen0409/react-native-debugger): Awesome debugger
+* [`react-native-i18n`](https://github.com/AlexanderZaytsev/react-native-i18n): I18n.js integration for React Native
 
 ## ✊🏽 Contribute
 Once I reach a minimum set of features I would love to review and accept some PRs.
