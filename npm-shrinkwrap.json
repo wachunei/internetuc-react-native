@@ -3150,6 +3150,11 @@
       "from": "react-native-experimental-navigation@>=0.26.0 <0.27.0",
       "resolved": "https://registry.npmjs.org/react-native-experimental-navigation/-/react-native-experimental-navigation-0.26.10.tgz"
     },
+    "react-native-i18n": {
+      "version": "1.0.0",
+      "from": "react-native-i18n@latest",
+      "resolved": "https://registry.npmjs.org/react-native-i18n/-/react-native-i18n-1.0.0.tgz"
+    },
     "react-native-keyboard-spacer": {
       "version": "0.3.1",
       "from": "react-native-keyboard-spacer@latest",
