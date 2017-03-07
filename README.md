@@ -6,9 +6,8 @@ Easily manage your wifi devices allowed in UC wireless network.
 
 ### 📦 Install
 
-<a href='https://play.google.com/store/apps/details?id=com.internetuc&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="200"/></a>
-
-⚠️ This is a WIP, iOS release coming soon.
+ <a href="https://itunes.apple.com/us/app/internet-uc/id1211757367?ls=1&mt=8" style="height:78px" ><img alt="Download" src="http://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg" width="173" align="middle" />
+ </a> <a href='https://play.google.com/store/apps/details?id=com.internetuc&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' style="height:78px" ><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="200" align="middle" /></a>
 
 ### 📱 Screenshots
 #### iOS
