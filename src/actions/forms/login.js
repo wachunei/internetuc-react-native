@@ -1,6 +1,7 @@
 import {
   Actions,
 } from 'react-native-router-flux';
+import t from '../../config/locales';
 import actions from '../constants';
 import UCLogin from '../../utils/UCLogin';
 
@@ -33,7 +34,7 @@ export function updatePassword(password) {
 export function displayGenericError() {
   return {
     type: actions.forms.login.displayGenericError,
-    error: 'Hubo un error intentando iniciar sesión',
+    error: t('login.error'),
   };
 }
 

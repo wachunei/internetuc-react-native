@@ -30,4 +30,9 @@ export default StyleSheet.create({
   errorText: {
     color: colors.devicesErrorColor,
   },
+  separator: {
+    height: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.separatorColor,
+  },
 });

@@ -4,6 +4,7 @@ import {
   View,
 } from 'react-native';
 import colors from '../config/colors';
+import t from '../config/locales';
 
 import WUCText from './WUCText';
 import DevicesList from './DevicesList';
@@ -75,7 +76,7 @@ export default class Devices extends React.Component {
         ]}
       >
         <WUCText centered style={style.emptyListText}>
-          No tienes dispositivos agregados ☹️
+          {t('devices.emptyListText')}
         </WUCText>
       </View>
     ) : null;
@@ -83,7 +84,7 @@ export default class Devices extends React.Component {
     const renderAddDeviceButton = devices ? (
       <WUCLoadingButton
         outlined={devices.length > 0 && !editMode}
-        text="Agregar Dispositivo"
+        text={t('devices.addDevice')}
         onPress={() => setScene('form')}
       />
     ) : null;
@@ -92,7 +93,7 @@ export default class Devices extends React.Component {
       <IconButton
         displayIcon
         iconName="refresh"
-        text="Update"
+        text={t('devices.update')}
         onPress={updateDevicesRequest}
         disabled={isUpdating || isForceUpdating || !devices}
         key="refreshButton"
@@ -103,7 +104,7 @@ export default class Devices extends React.Component {
       <IconButton
         displayIcon
         iconName="edit"
-        text="Editar"
+        text={t('devices.edit')}
         onPress={() => setEditMode(true)}
         disabled={isUpdating || isForceUpdating || !devices || (devices && devices.length === 0)}
         key="editButton"
@@ -115,7 +116,7 @@ export default class Devices extends React.Component {
         displayIcon
         displayText
         iconName="done"
-        text="Listo"
+        text={t('devices.done')}
         onPress={() => setEditMode(false)}
         color={colors.devicesDoneEditingColor}
         key="doneEditButton"
@@ -126,7 +127,7 @@ export default class Devices extends React.Component {
       <IconButton
         displayIcon
         iconName="account-circle"
-        text="Menu"
+        text={t('devices.menu')}
         key="menuButton"
         disabled={!devices}
         onPress={() => setScene('about')}
@@ -147,7 +148,7 @@ export default class Devices extends React.Component {
         <View style={[commonStyle.innerBox, commonStyle.itemInnerBox]}>
           <View style={commonStyle.itemTitle}>
             <View style={commonStyle.itemTitleText}>
-              <WUCText title>Dispositivos</WUCText>
+              <WUCText title>{t('devices.devices')}</WUCText>
             </View>
             <View style={commonStyle.itemTitleButtons}>
               {renderToolbar}

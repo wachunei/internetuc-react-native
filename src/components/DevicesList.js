@@ -6,11 +6,12 @@ import {
 } from 'react-native';
 import Device from './Device';
 import colors from '../config/colors';
+import style from '../styles/Devices';
 
 const renderSeparator = (sectionID, rowID) => (
   <View
     key={`${sectionID}-${rowID}`}
-    style={{ height: 1, borderBottomWidth: 1, borderBottomColor: '#eee' }}
+    style={style.separator}
   />
 );
 

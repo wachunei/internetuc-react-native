@@ -1,3 +1,4 @@
+import t from '../config/locales';
 import actions from './constants';
 import PortalDevices from '../utils/PortalDevices';
 import {
@@ -64,11 +65,11 @@ const showAndClearMessage = (error, dispatch) => {
   } else {
     switch (error.message) {
       case PortalDevicesErrors.unauthorized:
-        dispatch(formLoginDisplayError(error.message));
+        dispatch(formLoginDisplayError(t('login.unauthorized')));
         dispatch(logoutStart());
         break;
       default:
-        dispatch(setErrorMessage(error.message));
+        dispatch(setErrorMessage(t('login.error')));
         break;
     }
   }

@@ -8,6 +8,7 @@ import {
   macFormat,
 } from '../utils';
 import colors from '../config/colors';
+import t from '../config/locales';
 import WUCText from './WUCText';
 import IconButton from './IconButton';
 
@@ -21,16 +22,16 @@ export default function Device({
     setEditDevice,
   }) {
   const destroyAlert = [
-    `Borrar ${device.name}`,
-    '¿Estás seguro que quieres borrar este dispositivo?',
+    t('devices.destroyAlert.title', { deviceName: `${device.name}` }),
+    t('devices.destroyAlert.message'),
     [
       {
-        text: 'No, cancelar',
+        text: t('devices.destroyAlert.cancel'),
         onPress: null,
         style: 'cancel',
       },
       {
-        text: 'Sí, borrar',
+        text: t('devices.destroyAlert.confirm'),
         onPress: () => onDeviceRemovePress(device),
         style: 'destructive',
       },
@@ -40,12 +41,12 @@ export default function Device({
     <View style={style.editButtons}>
       <IconButton
         displayText
-        text="Editar"
+        text={t('devices.edit')}
         onPress={() => setEditDevice(device)}
       />
       <IconButton
         displayText
-        text="Borrar"
+        text={t('devices.remove')}
         color={colors.iconButtonDangerColor}
         onPress={() => Alert.alert(...destroyAlert)}
       />
