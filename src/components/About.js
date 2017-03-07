@@ -4,6 +4,7 @@ import {
   View,
   ScrollView,
 } from 'react-native';
+import t from '../config/locales';
 import WUCText from './WUCText';
 import WUCLoadingButton from './WUCLoadingButton';
 import IconButton from './IconButton';
@@ -13,11 +14,11 @@ import style from '../styles/About';
 
 function logoutAlert(success) {
   Alert.alert(
-    'Cerrar sesión',
-    'Si cierras sesión se olvidarán todos los dispositivos ¿Estás seguro?',
+    t('about.logOutAlert.title'),
+    t('about.logOutAlert.message'),
     [
-      { text: 'Cancelar', onPress: f => f, style: 'cancel' },
-      { text: 'Sí, estoy seguro', onPress: success, style: 'destructive' },
+      { text: t('about.logOutAlert.cancel'), onPress: f => f, style: 'cancel' },
+      { text: t('about.logOutAlert.confirm'), onPress: success, style: 'destructive' },
     ],
     { cancelable: true },
   );
@@ -38,7 +39,7 @@ export default function About({
           displayText
           iconPosition="left"
           iconName="arrow-back"
-          text="Volver a dispositivos"
+          text={t('about.backToDevices')}
           onPress={() => setScene('devices')}
           key="backToDevicesButton"
         />
@@ -54,7 +55,7 @@ export default function About({
               </WUCText>
             </View>
             <WUCLoadingButton
-              text="Cerrar Sesión"
+              text={t('about.logOut')}
               isLoading={loggingOut}
               disabled={loggingOut}
               onPress={() => logoutAlert(logoutStart)}
@@ -64,26 +65,23 @@ export default function About({
             />
           </View>
           <View style={style.section}>
-            <WUCText title centered style={style.title}>Acerca de</WUCText>
-            <WUCText centered style={style.paragraph}>
-              Esta aplicación no es oficial ni tiene relación alguna con la
-              Pontifica Universidad Católica de Chile.
-            </WUCText>
+            <WUCText title centered style={style.title}>{t('about.about')}</WUCText>
+            <WUCText centered style={style.paragraph}>{t('about.officialDisclaimer')}</WUCText>
           </View>
           <View style={style.section}>
-            <WUCText title centered style={style.title}>Código abierto</WUCText>
+            <WUCText title centered style={style.title}>{t('about.openSource')}</WUCText>
             <WUCText centered style={style.paragraph}>
-              El código de esta aplicación es abierto y se puede
+              {t('about.openSourceText')}
               {' '}
               <WUCText href="https://github.com/wachunei/internetuc-react-native">
-                encontrar en Github.
+                {t('about.openSourceLink')}
               </WUCText>
             </WUCText>
           </View>
 
           <View style={style.section}>
             <WUCText centered small style={style.paragraph}>
-              Desarrollada por Pedro Pablo Aste Kompen (ppaste@uc.cl)
+              {t('about.credits')}
             </WUCText>
           </View>
         </ScrollView>

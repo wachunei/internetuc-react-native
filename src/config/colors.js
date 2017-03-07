@@ -5,6 +5,7 @@ const black = '#000';
 const fontColor = '#555';
 const green = '#1cd67c';
 const lightGray = '#ccc';
+const lightestGray = '#eee';
 const gray = '#999';
 const darkGray = '#444';
 const red = '#ED1C24';
@@ -15,7 +16,7 @@ export default {
   primary,
   fontColor,
   fontHyperlink: blue,
-  separatorColor: lightGray,
+  separatorColor: lightestGray,
 
   /* Device */
   macTextColor: gray,

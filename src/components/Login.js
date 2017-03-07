@@ -5,6 +5,7 @@ import {
   View,
 } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
+import t from '../config/locales';
 import WUCText from './WUCText';
 import WUCTextInput from './WUCTextInput';
 import WUCLogo from './WUCLogo';
@@ -44,15 +45,15 @@ export default class Login extends React.Component {
         </View>
         <View style={[commonStyle.innerBox, style.loginBox]}>
           <View style={style.loginHeader}>
-            <WUCText title>Iniciar Sesión</WUCText>
-            <WUCText>Inicia sesión usando tu usuario y contraseña uc</WUCText>
+            <WUCText title>{t('login.login')}</WUCText>
+            <WUCText>{t('login.text')}</WUCText>
           </View>
           {renderError}
           <View style={style.formBox}>
             <WUCTextInput
               autoFocus={username.length === 0}
               selectTextOnFocus
-              placeholder="usuario"
+              placeholder={t('login.user')}
               autoCapitalize="none"
               editable={!isLoading}
               autoCorrect={false}
@@ -65,7 +66,7 @@ export default class Login extends React.Component {
               selectTextOnFocus
               secureTextEntry
               enablesReturnKeyAutomatically
-              placeholder="contraseña"
+              placeholder={t('login.password')}
               returnKeyType="go"
               editable={!isLoading}
               value={password}
@@ -75,7 +76,7 @@ export default class Login extends React.Component {
 
             <View style={style.submitWrapper}>
               <WUCLoadingButton
-                text="Iniciar Sesión"
+                text={t('login.login')}
                 isLoading={isLoading}
                 disabled={!buttonEnabled}
                 onPress={submit}

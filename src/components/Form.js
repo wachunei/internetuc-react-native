@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import colors from '../config/colors';
+import t from '../config/locales';
 import WUCText from './WUCText';
 import WUCTextInput from './WUCTextInput';
 import WUCLoadingButton from './WUCLoadingButton';
@@ -23,7 +24,7 @@ export default function Form({
   isLoading,
   isValid,
 }) {
-  const renderTitleText = type === 'new' ? 'Agregar Dispositivo' : 'Editar Dispositivo';
+  const renderTitleText = type === 'new' ? t('form.addDevice') : t('form.editDevice');
   const saveButtonOnPress = type === 'new' ? addDeviceRequest : editDeviceRequest;
   const renderSpacer = Platform.OS === 'ios' ? <KeyboardSpacer /> : null;
   return (
@@ -35,7 +36,7 @@ export default function Form({
         <View style={style.formBox}>
           <WUCTextInput
             autoFocus={false}
-            placeholder="nombre"
+            placeholder={t('form.name')}
             autoCapitalize="none"
             editable={!isLoading}
             autoCorrect={false}
@@ -44,7 +45,7 @@ export default function Form({
           />
           <WUCTextInput
             autoFocus={false}
-            placeholder="mac"
+            placeholder={t('form.mac')}
             autoCapitalize="none"
             editable={!isLoading && type !== 'edit'}
             autoCorrect={false}
@@ -55,13 +56,13 @@ export default function Form({
           />
           <View style={style.buttonsWrapper}>
             <WUCLoadingButton
-              text="Guardar"
+              text={t('form.save')}
               isLoading={isLoading}
               disabled={isLoading || !isValid}
               onPress={saveButtonOnPress}
             />
             <WUCLoadingButton
-              text="Cancelar"
+              text={t('form.cancel')}
               outlined
               color={colors.WUCLoadingButtonGray}
               disabled={isLoading}
