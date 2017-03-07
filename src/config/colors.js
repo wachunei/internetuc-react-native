@@ -24,6 +24,8 @@ export default {
   devicesListEmptyMessage: gray,
   devicesDoneEditingColor: green,
   refreshControl: lightBlue,
+  devicesErrorColor: white,
+  devicesErrorBackground: red,
 
   /* Logo */
   defaultLogoColor: white,

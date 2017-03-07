@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  LayoutAnimation,
   View,
 } from 'react-native';
 import colors from '../config/colors';
@@ -23,11 +24,17 @@ export default class Devices extends React.Component {
     if (nextProps.devices && nextProps.devices.length === 0 && nextProps.editMode) {
       this.props.setEditMode(false);
     }
+
+    if ((nextProps.error && !this.props.error) ||
+      (this.props.error && !nextProps.error)) {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    }
   }
 
   render() {
     const {
       devices,
+      error,
       isUpdating,
       isForceUpdating,
       editMode,
@@ -52,7 +59,10 @@ export default class Devices extends React.Component {
         onDeviceStatusChange={changeDeviceToStatus}
         onDeviceRemovePress={removeDeviceRequest}
         setEditDevice={setEditDevice}
-        style={isUpdating && style.updatingList}
+        style={[
+          style.devicesList,
+          isUpdating && style.updatingList,
+        ]}
         pointerEvents={isUpdating ? 'box-only' : 'auto'}
       />
     ) : null;
@@ -123,6 +133,12 @@ export default class Devices extends React.Component {
       />
     );
 
+    const renderError = error ? (
+      <View style={style.errorWrapper}>
+        <WUCText style={style.errorText}>{error}</WUCText>
+      </View>
+    ) : null;
+
     const renderToolbar = editMode ?
       [renderDoneEditButton] : [renderRefreshButton, renderEditButton, renderMenuButton];
 
@@ -138,6 +154,7 @@ export default class Devices extends React.Component {
             </View>
           </View>
           {renderPlaceholder || renderDevices || renderEmptyDevices}
+          {renderError}
           {renderAddDeviceButton}
         </View>
       </View>
@@ -147,10 +164,12 @@ export default class Devices extends React.Component {
 
 Devices.defaultProps = {
   devices: undefined,
+  error: undefined,
 };
 
 Devices.propTypes = {
   devices: React.PropTypes.arrayOf(React.PropTypes.object),
+  error: React.PropTypes.string,
   updateDevicesRequest: React.PropTypes.func.isRequired,
   updateForcedDevicesRequest: React.PropTypes.func.isRequired,
   changeDeviceToStatus: React.PropTypes.func.isRequired,
