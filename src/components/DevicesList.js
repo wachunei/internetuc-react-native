@@ -1,9 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import {
-  ListView,
-  RefreshControl,
-  View,
-} from 'react-native';
+import { ListView, RefreshControl, View, ViewPropTypes } from 'react-native';
 import Device from './Device';
 import colors from '../config/colors';
 import style from '../styles/Devices';
@@ -78,18 +75,18 @@ DevicesList.defaultProps = {
 };
 
 DevicesList.propTypes = {
-  devices: React.PropTypes.arrayOf(React.PropTypes.shape({
-    name: React.PropTypes.string,
-    mac: React.PropTypes.string,
-    active: React.PropTypes.bool,
-    updating: React.PropTypes.bool,
+  devices: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    mac: PropTypes.string,
+    active: PropTypes.bool,
+    updating: PropTypes.bool,
   })),
-  isUpdating: React.PropTypes.bool,
-  editMode: React.PropTypes.bool,
-  onRefresh: React.PropTypes.func.isRequired,
-  style: View.propTypes.style,
-  onDeviceStatusChange: React.PropTypes.func.isRequired,
-  pointerEvents: React.PropTypes.string,
-  onDeviceRemovePress: React.PropTypes.func.isRequired,
-  setEditDevice: React.PropTypes.func.isRequired,
+  isUpdating: PropTypes.bool,
+  editMode: PropTypes.bool,
+  onRefresh: PropTypes.func.isRequired,
+  style: ViewPropTypes.style,
+  onDeviceStatusChange: PropTypes.func.isRequired,
+  pointerEvents: PropTypes.string,
+  onDeviceRemovePress: PropTypes.func.isRequired,
+  setEditDevice: PropTypes.func.isRequired,
 };

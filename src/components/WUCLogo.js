@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Svg, {
   Path,
@@ -55,10 +56,10 @@ export default function WUCLogo({
 
 
 WUCLogo.propTypes = {
-  fillColor: React.PropTypes.string,
-  size: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string,
+  fillColor: PropTypes.string,
+  size: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
   ]),
 };
 

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   View,
@@ -88,17 +89,17 @@ Form.defaultProps = {
 };
 
 Form.propTypes = {
-  device: React.PropTypes.shape({
-    name: React.PropTypes.string,
-    mac: React.PropTypes.string,
-    active: React.PropTypes.bool,
+  device: PropTypes.shape({
+    name: PropTypes.string,
+    mac: PropTypes.string,
+    active: PropTypes.bool,
   }),
-  type: React.PropTypes.string,
-  updateName: React.PropTypes.func.isRequired,
-  updateMac: React.PropTypes.func.isRequired,
-  addDeviceRequest: React.PropTypes.func.isRequired,
-  editDeviceRequest: React.PropTypes.func.isRequired,
-  cancelForm: React.PropTypes.func.isRequired,
-  isLoading: React.PropTypes.bool,
-  isValid: React.PropTypes.bool,
+  type: PropTypes.string,
+  updateName: PropTypes.func.isRequired,
+  updateMac: PropTypes.func.isRequired,
+  addDeviceRequest: PropTypes.func.isRequired,
+  editDeviceRequest: PropTypes.func.isRequired,
+  cancelForm: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
+  isValid: PropTypes.bool,
 };

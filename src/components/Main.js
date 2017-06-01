@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Dimensions,
@@ -123,7 +124,7 @@ Main.defaultProps = {
 };
 
 Main.propTypes = {
-  scene: React.PropTypes.string,
-  setScene: React.PropTypes.func.isRequired,
-  devices: React.PropTypes.arrayOf(React.PropTypes.object),
+  scene: PropTypes.string,
+  setScene: PropTypes.func.isRequired,
+  devices: PropTypes.arrayOf(PropTypes.object),
 };

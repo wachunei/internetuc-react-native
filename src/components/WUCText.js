@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Linking,
@@ -42,13 +43,13 @@ export default function WUCText({
 }
 
 WUCText.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  title: React.PropTypes.bool,
-  centered: React.PropTypes.bool,
-  small: React.PropTypes.bool,
-  href: React.PropTypes.string,
+  children: PropTypes.node.isRequired,
+  title: PropTypes.bool,
+  centered: PropTypes.bool,
+  small: PropTypes.bool,
+  href: PropTypes.string,
   style: Text.propTypes.style,
-  onPress: React.PropTypes.func,
+  onPress: PropTypes.func,
 };
 
 WUCText.defaultProps = {

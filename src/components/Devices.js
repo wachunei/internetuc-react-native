@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   LayoutAnimation,
@@ -169,16 +170,16 @@ Devices.defaultProps = {
 };
 
 Devices.propTypes = {
-  devices: React.PropTypes.arrayOf(React.PropTypes.object),
-  error: React.PropTypes.string,
-  updateDevicesRequest: React.PropTypes.func.isRequired,
-  updateForcedDevicesRequest: React.PropTypes.func.isRequired,
-  changeDeviceToStatus: React.PropTypes.func.isRequired,
-  setEditMode: React.PropTypes.func.isRequired,
-  isUpdating: React.PropTypes.bool.isRequired,
-  editMode: React.PropTypes.bool.isRequired,
-  isForceUpdating: React.PropTypes.bool.isRequired,
-  removeDeviceRequest: React.PropTypes.func.isRequired,
-  setEditDevice: React.PropTypes.func.isRequired,
-  setScene: React.PropTypes.func.isRequired,
+  devices: PropTypes.arrayOf(PropTypes.object),
+  error: PropTypes.string,
+  updateDevicesRequest: PropTypes.func.isRequired,
+  updateForcedDevicesRequest: PropTypes.func.isRequired,
+  changeDeviceToStatus: PropTypes.func.isRequired,
+  setEditMode: PropTypes.func.isRequired,
+  isUpdating: PropTypes.bool.isRequired,
+  editMode: PropTypes.bool.isRequired,
+  isForceUpdating: PropTypes.bool.isRequired,
+  removeDeviceRequest: PropTypes.func.isRequired,
+  setEditDevice: PropTypes.func.isRequired,
+  setScene: PropTypes.func.isRequired,
 };

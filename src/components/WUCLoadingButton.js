@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Animated,
   Easing,
   TouchableOpacity,
-  View,
+  ViewPropTypes,
 } from 'react-native';
 
 import WUCText from './WUCText';
@@ -100,11 +101,11 @@ WUCLoadingButton.defaultProps = {
 };
 
 WUCLoadingButton.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  onPress: React.PropTypes.func,
-  isLoading: React.PropTypes.bool,
-  disabled: React.PropTypes.bool,
-  outlined: React.PropTypes.bool,
-  style: View.propTypes.style,
-  color: React.PropTypes.string,
+  text: PropTypes.string.isRequired,
+  onPress: PropTypes.func,
+  isLoading: PropTypes.bool,
+  disabled: PropTypes.bool,
+  outlined: PropTypes.bool,
+  style: ViewPropTypes.style,
+  color: PropTypes.string,
 };
