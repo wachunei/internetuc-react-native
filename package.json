@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "postversion": "react-native-version --never-amend",
     "test": "jest"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "react-native-router-flux": "^3.39.2",
     "react-native-svg": "^5.1.4",
     "react-native-vector-icons": "^4.0.0",
+    "react-native-version": "^2.3.1",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-persist": "^4.3.0",
