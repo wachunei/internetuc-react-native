@@ -1,3 +1,4 @@
+/* global __DEV__, window */
 import {
   createStore,
   applyMiddleware,
@@ -10,7 +11,14 @@ import {
 
 import reducers from '../reducers';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let composeEnhancers;
+if (__DEV__) {
+  /* eslint-disable no-underscore-dangle */
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  /* eslint-enable no-underscore-dangle */
+} else {
+  composeEnhancers = compose;
+}
 
 export default createStore(
   reducers,

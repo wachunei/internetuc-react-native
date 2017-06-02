@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   TouchableOpacity,
-  View,
+  ViewPropTypes,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -66,13 +67,13 @@ IconButton.defaultProps = {
 };
 
 IconButton.propTypes = {
-  iconName: React.PropTypes.string,
-  iconPosition: React.PropTypes.string,
-  displayIcon: React.PropTypes.bool,
-  displayText: React.PropTypes.bool,
-  text: React.PropTypes.string,
-  color: React.PropTypes.string,
-  onPress: React.PropTypes.func,
-  disabled: React.PropTypes.bool,
-  style: View.propTypes.style,
+  iconName: PropTypes.string,
+  iconPosition: PropTypes.string,
+  displayIcon: PropTypes.bool,
+  displayText: PropTypes.bool,
+  text: PropTypes.string,
+  color: PropTypes.string,
+  onPress: PropTypes.func,
+  disabled: PropTypes.bool,
+  style: ViewPropTypes.style,
 };

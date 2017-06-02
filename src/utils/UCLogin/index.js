@@ -5,9 +5,7 @@ import {
   METHODS,
   handleError,
 } from '../fetchUtils';
-import {
-  URL,
-} from './utils';
+import URL from './utils';
 
 export default class UCLogin {
   static login(username, password) {

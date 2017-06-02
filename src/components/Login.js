@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   LayoutAnimation,
@@ -92,13 +93,13 @@ export default class Login extends React.Component {
 }
 
 Login.propTypes = {
-  username: React.PropTypes.string.isRequired,
-  password: React.PropTypes.string.isRequired,
-  isLoading: React.PropTypes.bool.isRequired,
-  updateUsername: React.PropTypes.func.isRequired,
-  updatePassword: React.PropTypes.func.isRequired,
-  error: React.PropTypes.string.isRequired,
-  buttonEnabled: React.PropTypes.bool.isRequired,
-  cleanUsername: React.PropTypes.func.isRequired,
-  submit: React.PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  updateUsername: PropTypes.func.isRequired,
+  updatePassword: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
+  buttonEnabled: PropTypes.bool.isRequired,
+  cleanUsername: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
 };

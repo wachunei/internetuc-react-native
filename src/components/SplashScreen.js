@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Animated,
@@ -66,7 +67,7 @@ export default class SplashScreen extends React.Component {
 }
 
 SplashScreen.propTypes = {
-  isLoggedIn: React.PropTypes.bool.isRequired,
-  onLoggedIn: React.PropTypes.func.isRequired,
-  onLoggedOut: React.PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  onLoggedIn: PropTypes.func.isRequired,
+  onLoggedOut: PropTypes.func.isRequired,
 };

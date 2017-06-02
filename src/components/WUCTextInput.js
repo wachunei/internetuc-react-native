@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  TextInput,
-  View,
-} from 'react-native';
+import { TextInput, View, ViewPropTypes } from 'react-native';
 
 import inputStyle from '../styles/WUCTextInput';
 
@@ -22,7 +19,7 @@ export default function WUCTextInput({
 }
 
 WUCTextInput.propTypes = {
-  style: View.propTypes.style,
+  style: ViewPropTypes.style,
 };
 
 WUCTextInput.defaultProps = {

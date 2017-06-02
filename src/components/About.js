@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Alert,
@@ -96,9 +97,9 @@ About.defaultProps = {
 };
 
 About.propTypes = {
-  fullName: React.PropTypes.string,
-  username: React.PropTypes.string.isRequired,
-  loggingOut: React.PropTypes.bool,
-  logoutStart: React.PropTypes.func.isRequired,
-  setScene: React.PropTypes.func.isRequired,
+  fullName: PropTypes.string,
+  username: PropTypes.string.isRequired,
+  loggingOut: PropTypes.bool,
+  logoutStart: PropTypes.func.isRequired,
+  setScene: PropTypes.func.isRequired,
 };

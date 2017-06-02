@@ -10,9 +10,7 @@ import * as devicesActions from '../actions/devices';
 import {
   setEditDevice,
 } from '../actions/forms/device';
-import {
-  setScene,
-} from '../actions/scenes';
+import setScene from '../actions/scenes';
 
 import {
   getDevicesData,

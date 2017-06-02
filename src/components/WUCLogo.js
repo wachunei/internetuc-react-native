@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Svg, {
   Path,
@@ -10,6 +11,7 @@ export default function WUCLogo({
   fillColor,
   size,
   }) {
+  /*eslint-disable */
   return (
     <Svg
       viewBox="0 0 200 200"
@@ -51,14 +53,15 @@ export default function WUCLogo({
       </G>
     </Svg>
   );
+  /*eslint-enable */
 }
 
 
 WUCLogo.propTypes = {
-  fillColor: React.PropTypes.string,
-  size: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string,
+  fillColor: PropTypes.string,
+  size: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
   ]),
 };
 

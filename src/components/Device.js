@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Alert,
@@ -79,14 +80,14 @@ export default function Device({
 }
 
 Device.propTypes = {
-  device: React.PropTypes.shape({
-    name: React.PropTypes.string,
-    mac: React.PropTypes.string,
-    active: React.PropTypes.bool,
-    updating: React.PropTypes.bool,
+  device: PropTypes.shape({
+    name: PropTypes.string,
+    mac: PropTypes.string,
+    active: PropTypes.bool,
+    updating: PropTypes.bool,
   }).isRequired,
-  onStatusChange: React.PropTypes.func.isRequired,
-  editMode: React.PropTypes.bool.isRequired,
-  onDeviceRemovePress: React.PropTypes.func.isRequired,
-  setEditDevice: React.PropTypes.func.isRequired,
+  onStatusChange: PropTypes.func.isRequired,
+  editMode: PropTypes.bool.isRequired,
+  onDeviceRemovePress: PropTypes.func.isRequired,
+  setEditDevice: PropTypes.func.isRequired,
 };

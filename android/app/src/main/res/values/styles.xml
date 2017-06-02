@@ -1,8 +1,11 @@
 <resources>
 
+    <color name="internetuc_primary_color">#3cc7ea</color>
+    <color name="internetuc_dark_primary_color">#0b99bd</color>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+      <item name="colorPrimary">@color/internetuc_primary_color</item>
+      <item name="colorPrimaryDark">@color/internetuc_dark_primary_color</item>
     </style>
 
 </resources>

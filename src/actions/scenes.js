@@ -4,7 +4,7 @@ import actions from './constants';
 //   updateDevicesRequest,
 // } from './devices';
 
-export function setScene(scene) {
+export default function setScene(scene) {
   return (dispatch) => {
     // if (scene === 'devices') {
     //   dispatch(updateDevicesRequest());

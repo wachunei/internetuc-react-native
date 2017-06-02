@@ -1,1 +1,1 @@
-export const getScene = state => state.scenes;
+export default state => state.scenes;

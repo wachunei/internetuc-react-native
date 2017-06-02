@@ -10,11 +10,14 @@ Easily manage your wifi devices allowed in UC wireless network.
  </a> <a href='https://play.google.com/store/apps/details?id=com.internetuc&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' style="height:78px" ><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="200" align="middle" /></a>
 
 ### 📱 Screenshots
+
 #### iOS
+
 <img src="http://i.imgur.com/Sr3G9TW.png" width="200">
 <img src="http://i.imgur.com/NC2QvnQ.png" width="200">
 <img src="http://i.imgur.com/YgfB0VV.png" width="200">
 <img src="http://i.imgur.com/nvcFICB.png" width="200">
+
 #### Android
 
 <img src="http://i.imgur.com/xmLjS1S.png" width="200">
@@ -61,3 +64,8 @@ Tools we're using:
 Once I reach a minimum set of features I would love to review and accept some PRs.
 Consider the code is linted with ESLint and the configuration extends from [Airbnb style guide](https://github.com/airbnb/javascript).
 As I said before, coding-style related issues are welcome (even if you think something is missing from this README!).
+
+## Disclaimer
+
+* This application is not official and is not related to Pontifical Catholic University of Chile.
+* [Privacy Policy](PRIVACY_POLICY.md)

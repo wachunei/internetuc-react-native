@@ -1,37 +1,45 @@
 {
   "name": "InternetUC",
-  "version": "0.0.1",
+  "version": "1.1.3",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "ios": "react-native run-ios",
+    "android": "react-native run-ios",
+    "android:release": "react-native run-android --variant=release",
+    "build": "cd android && ./gradlew assembleRelease",
+    "link": "react-native link",
+    "postversion": "react-native-version --never-amend",
+    "test": "jest",
+    "lint": "eslint src"
   },
   "dependencies": {
     "cheerio-without-node-native": "^0.20.2",
-    "eslint": "^3.14.1",
-    "react": "15.4.2",
-    "react-native": "^0.42.0",
+    "prop-types": "^15.5.10",
+    "react": "16.0.0-alpha.6",
+    "react-native": "^0.44.2",
     "react-native-i18n": "^1.0.0",
     "react-native-keyboard-spacer": "^0.3.1",
-    "react-native-router-flux": "^3.37.0",
+    "react-native-router-flux": "^3.39.2",
     "react-native-svg": "^5.1.4",
     "react-native-vector-icons": "^4.0.0",
+    "react-native-version": "^2.3.1",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-persist": "^4.3.0",
     "redux-thunk": "^2.2.0",
-    "reselect": "^2.5.4"
+    "reselect": "^3.0.1"
   },
   "devDependencies": {
-    "babel-jest": "18.0.0",
-    "babel-preset-react-native": "1.9.1",
-    "eslint": "^3.14.1",
-    "eslint-config-airbnb": "^14.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
-    "eslint-plugin-react": "^6.9.0",
-    "jest": "18.1.0",
-    "react-test-renderer": "15.4.2"
+    "babel-jest": "^20.0.3",
+    "babel-preset-react-native": "^1.9.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.4.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "jest": "^20.0.4",
+    "react-test-renderer": "^15.5.4"
   },
   "jest": {
     "preset": "react-native"

@@ -7,15 +7,13 @@ import {
 
 import MainComponent from '../components/Main';
 
-import {
-  getScene,
-} from '../selectors/scenes';
+import getScene from '../selectors/scenes';
 
 import {
   getDevicesData,
 } from '../selectors/devices';
 
-import * as scenesActions from '../actions/scenes';
+import setScene from '../actions/scenes';
 
 function mapStateToProps(state) {
   return {
@@ -25,7 +23,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ ...scenesActions }, dispatch);
+  return bindActionCreators({ setScene }, dispatch);
 }
 
 export default connect(
