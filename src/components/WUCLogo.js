@@ -11,6 +11,7 @@ export default function WUCLogo({
   fillColor,
   size,
   }) {
+  /*eslint-disable */
   return (
     <Svg
       viewBox="0 0 200 200"
@@ -52,6 +53,7 @@ export default function WUCLogo({
       </G>
     </Svg>
   );
+  /*eslint-enable */
 }
 
 

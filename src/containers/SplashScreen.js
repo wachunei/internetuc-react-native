@@ -1,7 +1,4 @@
 import {
-  bindActionCreators,
-} from 'redux';
-import {
   connect,
 } from 'react-redux';
 import {
@@ -21,7 +18,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps() {
   return {
     onLoggedIn: () => {
       Actions.Main();

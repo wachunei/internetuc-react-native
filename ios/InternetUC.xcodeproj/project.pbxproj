@@ -1193,7 +1193,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/InternetUC/Info.plist";
+				INFOPLIST_FILE = InternetUC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1216,7 +1216,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/InternetUC/Info.plist";
+				INFOPLIST_FILE = InternetUC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

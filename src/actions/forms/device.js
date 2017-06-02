@@ -14,9 +14,7 @@ import {
   getPassword,
 } from '../../selectors/user';
 
-import {
-  setScene,
-} from '../scenes';
+import setScene from '../scenes';
 
 import {
   addDevice,

@@ -17,9 +17,7 @@ import {
   logoutStart,
 } from '../actions/user';
 
-import {
-  setScene,
-} from '../actions/scenes';
+import setScene from '../actions/scenes';
 
 
 function mapStateToProps(state) {
