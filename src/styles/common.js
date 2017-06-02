@@ -11,6 +11,11 @@ export default StyleSheet.create({
     padding: 20,
     backgroundColor: colors.innerBoxBg,
     margin: 20,
+    ...Platform.select({
+      android: {
+        marginTop: 5,
+      },
+    }),
     shadowColor: colors.innerBoxShadow,
     shadowOffset: {
       width: 0,
