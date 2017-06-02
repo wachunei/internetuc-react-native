@@ -64,3 +64,8 @@ Tools we're using:
 Once I reach a minimum set of features I would love to review and accept some PRs.
 Consider the code is linted with ESLint and the configuration extends from [Airbnb style guide](https://github.com/airbnb/javascript).
 As I said before, coding-style related issues are welcome (even if you think something is missing from this README!).
+
+## Disclaimer
+
+* This application is not official and is not related to Pontifical Catholic University of Chile.
+* [Privacy Policy](PRIVACY_POLICY.md)
