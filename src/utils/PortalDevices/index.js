@@ -90,104 +90,104 @@ export default class PortalDevices {
 
   static login(username, password) {
     return fetch(URL.LOGIN)
-    .then(responseText)
-    .then(response => this.handleFormLogin(response, username, password))
-    .then(() => fetch(URL.RENDER, { headers, method: METHODS.POST }));
+      .then(responseText)
+      .then(response => this.handleFormLogin(response, username, password))
+      .then(() => fetch(URL.RENDER, { headers, method: METHODS.POST }));
   }
 
   static getDevices(username, password) {
     return PortalDevices.login(username, password)
-    .then(() => fetch(URL.LIST, { method: METHODS.POST }))
-    .then(responseText)
-    .then((response) => {
-      const $ = cheerio.load(response);
-      if ($(dom.listaRegMac).length === 0) {
-        if (getDevicesAttempts >= maxGetDevicesAttempts) {
-          getDevicesAttempts = 0;
-          throw new Error(ERRORS.unauthorized);
+      .then(() => fetch(URL.LIST, { method: METHODS.POST }))
+      .then(responseText)
+      .then((response) => {
+        const $ = cheerio.load(response);
+        if ($(dom.listaRegMac).length === 0) {
+          if (getDevicesAttempts >= maxGetDevicesAttempts) {
+            getDevicesAttempts = 0;
+            throw new Error(ERRORS.unauthorized);
+          }
+          getDevicesAttempts += 1;
+          return this.getDevices(username, password);
         }
-        getDevicesAttempts += 1;
-        return this.getDevices(username, password);
-      }
-      getDevicesAttempts = 0;
-      const devices = [];
-      $(`${dom.listaRegMac} ${dom.rowReg}`).each((i, el) => {
-        devices.push({
-          name: $(el).find(dom.rowName).text(),
-          mac: $(el).find(dom.rowMac).text()
-            .split('-')
-            .join('')
-            .toLowerCase(),
+        getDevicesAttempts = 0;
+        const devices = [];
+        $(`${dom.listaRegMac} ${dom.rowReg}`).each((i, el) => {
+          devices.push({
+            name: $(el).find(dom.rowName).text(),
+            mac: $(el).find(dom.rowMac).text()
+              .split('-')
+              .join('')
+              .toLowerCase(),
+          });
         });
-      });
 
-      return Promise.resolve(devices);
-    })
-    .catch((error) => {
-      throw error || new Error(ERRORS.default);
-    });
+        return Promise.resolve(devices);
+      })
+      .catch((error) => {
+        throw error || new Error(ERRORS.default);
+      });
   }
 
   static editDevice(username, password, newDevice, oldName) {
     return PortalDevices.login(username, password)
-    .then(() => fetch(
-      URL.EDIT,
-      {
-        headers,
-        method: METHODS.POST,
-        body: JSONtoForm({
-          macAntes: newDevice.mac,
-          macDespues: newDevice.mac,
-          nombreDispositivoAntes: oldName,
-          nombreDispositivoDespues: newDevice.name,
-        }),
-      },
-    ))
-    .then(responseText)
-    .then(portalErrorPromise)
-    .catch(error => handleCASError(
-      error,
-      () => PortalDevices.editDevice(username, password, newDevice, oldName),
-    ));
+      .then(() => fetch(
+        URL.EDIT,
+        {
+          headers,
+          method: METHODS.POST,
+          body: JSONtoForm({
+            macAntes: newDevice.mac,
+            macDespues: newDevice.mac,
+            nombreDispositivoAntes: oldName,
+            nombreDispositivoDespues: newDevice.name,
+          }),
+        },
+      ))
+      .then(responseText)
+      .then(portalErrorPromise)
+      .catch(error => handleCASError(
+        error,
+        () => PortalDevices.editDevice(username, password, newDevice, oldName),
+      ));
   }
 
   static removeDevice(username, password, device) {
     return PortalDevices.login(username, password)
-    .then(() => fetch(
-      URL.REMOVE,
-      {
-        headers,
-        method: METHODS.POST,
-        body: JSONtoForm({ mac: device.mac }),
-      },
-    ))
-    .then(responseText)
-    .then(portalErrorPromise)
-    .catch(error => handleCASError(
-      error,
-      () => PortalDevices.removeDevice(username, password, device),
-    ));
+      .then(() => fetch(
+        URL.REMOVE,
+        {
+          headers,
+          method: METHODS.POST,
+          body: JSONtoForm({ mac: device.mac }),
+        },
+      ))
+      .then(responseText)
+      .then(portalErrorPromise)
+      .catch(error => handleCASError(
+        error,
+        () => PortalDevices.removeDevice(username, password, device),
+      ));
   }
 
   static addDevice(username, password, device) {
     return PortalDevices.login(username, password)
-    .then(() => fetch(
-      URL.ADD,
-      {
-        headers,
-        method: METHODS.POST,
-        body: JSONtoForm({
-          mac: device.mac,
-          nombreDispositivo: device.name,
-        }),
-      },
-    ))
-    .then(responseText)
-    .then(portalErrorPromise)
-    .catch(error => handleCASError(
-      error,
-      () => PortalDevices.addDevice(username, password, device),
-    ));
+      .then(() => fetch(
+        URL.ADD,
+        {
+          headers,
+          method: METHODS.POST,
+          body: JSONtoForm({
+            mac: device.mac,
+            nombreDispositivo: device.name,
+          }),
+        },
+      ))
+      .then(responseText)
+      .then(portalErrorPromise)
+      .catch(error => handleCASError(
+        error,
+        () => PortalDevices.addDevice(username, password, device),
+      ));
   }
 
   static logout() {

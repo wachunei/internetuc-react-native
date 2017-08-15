@@ -105,18 +105,18 @@ export function editDeviceRequest() {
       const username = getUsername(state);
       const password = getPassword(state);
       PortalDevices.editDevice(username, password, editedDevice)
-      .then(() => {
-        dispatch(editDevice(editedDevice));
-        dispatch(isFormLoading(false));
-        dispatch(setScene('devices'));
-        dispatch(clear());
-      })
-      .catch((error) => {
-        if (error) {
-          dispatch(setErrorMessage(error));
-        }
-        dispatch(isFormLoading(false));
-      });
+        .then(() => {
+          dispatch(editDevice(editedDevice));
+          dispatch(isFormLoading(false));
+          dispatch(setScene('devices'));
+          dispatch(clear());
+        })
+        .catch((error) => {
+          if (error) {
+            dispatch(setErrorMessage(error));
+          }
+          dispatch(isFormLoading(false));
+        });
     } else {
       dispatch(editDevice(editedDevice));
       dispatch(setScene('devices'));

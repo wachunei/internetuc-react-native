@@ -16,7 +16,6 @@ import style from '../styles/Login';
 import commonStyle from '../styles/common';
 
 export default class Login extends React.Component {
-
   componentWillUnmount() {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
   }

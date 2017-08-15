@@ -13,7 +13,6 @@ const renderSeparator = (sectionID, rowID) => (
 );
 
 export default class DevicesList extends React.Component {
-
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({

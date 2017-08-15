@@ -10,7 +10,7 @@ import colors from '../config/colors';
 export default function WUCSpinner({
   fillColor,
   size,
-  }) {
+}) {
   return (
     <Svg
       viewBox="0 0 30 30"

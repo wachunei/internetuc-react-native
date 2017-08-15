@@ -17,7 +17,6 @@ import WUCLogo from './WUCLogo';
 import style from '../styles/SplashScreen';
 
 export default class SplashScreen extends React.Component {
-
   constructor(props) {
     super(props);
     this.initialize = this.initialize.bind(this);

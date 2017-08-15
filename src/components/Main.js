@@ -84,7 +84,7 @@ export default class Main extends React.Component {
     if (Platform.OS === 'android') {
       return (
         <ViewPagerAndroid
-          ref={vp => (this.viewPager = vp)}
+          ref={(vp) => { this.viewPager = vp; }}
           initialPage={1}
           keyboardDismissMode="on-drag"
           onPageSelected={this.handleScrollScene}
@@ -98,7 +98,7 @@ export default class Main extends React.Component {
 
     return (
       <ScrollView
-        ref={sv => (this.scrollView = sv)}
+        ref={(sv) => { this.scrollView = sv; }}
         horizontal
         pagingEnabled
         directionalLockEnabled

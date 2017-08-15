@@ -97,17 +97,17 @@ export function submit() {
     dispatch(isFormLoading(true));
     dispatch(clearError());
     return UCLogin.login(username, password)
-    .then(() => {
-      dispatch(setUsername(username));
-      dispatch(setPassword(password));
-      dispatch(clearPassword());
-      dispatch(isFormLoading(false));
-      Actions.Main();
-      dispatch(setFullNameRequest());
-    })
-    .catch(() => {
-      dispatch(displayGenericError());
-      dispatch(isFormLoading(false));
-    });
+      .then(() => {
+        dispatch(setUsername(username));
+        dispatch(setPassword(password));
+        dispatch(clearPassword());
+        dispatch(isFormLoading(false));
+        Actions.Main();
+        dispatch(setFullNameRequest());
+      })
+      .catch(() => {
+        dispatch(displayGenericError());
+        dispatch(isFormLoading(false));
+      });
   };
 }

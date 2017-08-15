@@ -61,10 +61,10 @@ export function logoutStart() {
 export function setFullNameRequest() {
   return (dispatch) => {
     UCLogin.current()
-    .then((data) => {
-      if (data.props && data.props.distinguishedName) {
-        dispatch(setFullName(capitalize(data.props.distinguishedName)));
-      }
-    });
+      .then((data) => {
+        if (data.props && data.props.distinguishedName) {
+          dispatch(setFullName(capitalize(data.props.distinguishedName)));
+        }
+      });
   };
 }
