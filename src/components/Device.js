@@ -16,12 +16,12 @@ import IconButton from './IconButton';
 import style from '../styles/Device';
 
 export default function Device({
-    device,
-    editMode,
-    onStatusChange,
-    onDeviceRemovePress,
-    setEditDevice,
-  }) {
+  device,
+  editMode,
+  onStatusChange,
+  onDeviceRemovePress,
+  setEditDevice,
+}) {
   const destroyAlert = [
     t('devices.destroyAlert.title', { deviceName: `${device.name}` }),
     t('devices.destroyAlert.message'),

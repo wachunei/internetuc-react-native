@@ -10,7 +10,7 @@ import colors from '../config/colors';
 export default function WUCLogo({
   fillColor,
   size,
-  }) {
+}) {
   /*eslint-disable */
   return (
     <Svg

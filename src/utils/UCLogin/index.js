@@ -31,7 +31,7 @@ export default class UCLogin {
         },
       },
     ).then(handleError)
-    .then(r => r.json());
+      .then(r => r.json());
   }
 
   static logout() {

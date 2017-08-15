@@ -11,7 +11,8 @@
     "link": "react-native link",
     "postversion": "react-native-version --never-amend",
     "test": "jest",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "lintfix": "eslint src --fix"
   },
   "dependencies": {
     "cheerio-without-node-native": "^0.20.2",

@@ -17,7 +17,6 @@ import style from '../styles/Devices';
 import commonStyle from '../styles/common';
 
 export default class Devices extends React.Component {
-
   componentDidMount() {
     this.props.updateDevicesRequest();
   }

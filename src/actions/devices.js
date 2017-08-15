@@ -128,13 +128,13 @@ export function updateDevicesRequest() {
     const password = getPassword(state);
     dispatch(setIsUpdating(true));
     return PortalDevices.getDevices(username, password)
-    .then((devices) => {
-      dispatch(updateDevices(devices));
-      dispatch(clearDevicesUpdating());
-    }).catch((error) => {
-      showAndClearMessage(error, dispatch);
-      dispatch(clearDevicesUpdating());
-    });
+      .then((devices) => {
+        dispatch(updateDevices(devices));
+        dispatch(clearDevicesUpdating());
+      }).catch((error) => {
+        showAndClearMessage(error, dispatch);
+        dispatch(clearDevicesUpdating());
+      });
   };
 }
 
@@ -153,14 +153,14 @@ export function changeDeviceToStatus(device, newStatus) {
     dispatch(setDeviceUpdating(device, true));
     const action = newStatus ? PortalDevices.addDevice : PortalDevices.removeDevice;
     return action(username, password, device)
-    .then(() => {
-      dispatch(setDeviceUpdating(device, false));
-      dispatch(setDeviceStatus(device, newStatus));
-    })
-    .catch((error) => {
-      showAndClearMessage(error, dispatch);
-      dispatch(setDeviceUpdating(device, false));
-    });
+      .then(() => {
+        dispatch(setDeviceUpdating(device, false));
+        dispatch(setDeviceStatus(device, newStatus));
+      })
+      .catch((error) => {
+        showAndClearMessage(error, dispatch);
+        dispatch(setDeviceUpdating(device, false));
+      });
   };
 }
 
